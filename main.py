@@ -4,9 +4,16 @@ Main script to run the Tribot JavaDoc scraper
 """
 
 import argparse
+import sys
+import io
 from scraper import TribotDocScraper
 from urls import TEST_URL, TRIBOT_URLS
 from tqdm import tqdm
+
+# Fix Windows console encoding
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 
 def main():
