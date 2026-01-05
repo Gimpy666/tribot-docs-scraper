@@ -1,16 +1,16 @@
-# Tribot JavaDoc Scraper
+# RuneLite JavaDoc Scraper
 
-A Python-based web scraper that extracts JavaDoc content from the Tribot API documentation and converts it to well-formatted markdown for LLM consumption.
+A Python-based web scraper that extracts JavaDoc content from the RuneLite API documentation and converts it to well-formatted markdown for LLM consumption.
 
 ## 🎯 Overview
 
-This project scrapes all 224 Tribot API classes and interfaces from the official JavaDoc documentation and provides them in two formats:
+This project scrapes all RuneLite API classes and interfaces from the official JavaDoc documentation located at `https://static.runelite.net/runelite-api/apidocs/` and provides them in two formats:
 - **Individual files**: One `.md` file per class/interface
-- **Consolidated file**: `ALL_TRIBOT_DOCS.md` with everything in one organized document
+- **Consolidated file**: `ALL_RUNELITE_DOCS.md` with everything in one organized document
 
 ## ✨ Features
 
-- 🕷️ **Complete Coverage**: Scrapes all 224 Tribot API classes and interfaces
+- 🕷️ **Automatic Discovery**: Automatically discovers all RuneLite API classes from the documentation index
 - 📝 **Clean Markdown**: Converts HTML to well-formatted, LLM-friendly markdown
 - 🎯 **Dual Output**: Creates both individual files and a consolidated document
 - ⚡ **Rate Limiting**: Respectful 1-second delay between requests
@@ -23,12 +23,12 @@ This project scrapes all 224 Tribot API classes and interfaces from the official
 ### Core Files
 - `scraper.py` - Main scraper class with all functionality
 - `main.py` - Command-line interface script
-- `urls.py` - Complete list of 224 Tribot API URLs
+- `urls.py` - URL discovery and list of RuneLite API URLs
 - `requirements.txt` - Python dependencies
 
 ### Documentation Output
 - `scraped_docs/` - Directory containing all scraped documentation
-  - `ALL_TRIBOT_DOCS.md` - **Consolidated file with all 224 pages**
+  - `ALL_RUNELITE_DOCS.md` - **Consolidated file with all pages**
   - Individual `.md` files for each class/interface
   - `scraping_summary.json` - Statistics and metadata
 
@@ -36,14 +36,14 @@ This project scrapes all 224 Tribot API classes and interfaces from the official
 
 ### Installation
 ```bash
-git clone https://github.com/Gimpy666/tribot-docs-scraper.git
+git clone <repository-url>
 cd tribot-docs-scraper
 pip install -r requirements.txt
 ```
 
 ### Usage
 
-**Scrape all Tribot API pages (default):**
+**Scrape all RuneLite API pages (default):**
 ```bash
 python main.py
 ```
@@ -60,12 +60,11 @@ python main.py --output my_docs --delay 2.0
 
 ## 📊 Scraping Results
 
-The scraper successfully processed **224/224 URLs** with **0 failures**:
+The scraper automatically discovers all available RuneLite API documentation pages and processes them:
 
-- ✅ **224 successful** scrapes
-- ❌ **0 failed** requests
-- 📄 **224 individual** markdown files
-- 📚 **1 consolidated** file (`ALL_TRIBOT_DOCS.md`)
+- ✅ **Automatic URL discovery** from overview-tree.html
+- 📄 **Individual markdown files** for each class/interface
+- 📚 **1 consolidated file** (`ALL_RUNELITE_DOCS.md`)
 
 ## 📖 Output Format
 
@@ -77,10 +76,10 @@ Each class gets its own markdown file with:
 - Complete JavaDoc content in markdown format
 
 ### Consolidated File
-The `ALL_TRIBOT_DOCS.md` file includes:
+The `ALL_RUNELITE_DOCS.md` file includes:
 - **Header** with generation timestamp and page count
 - **Table of Contents** with clickable links to each class
-- **Individual sections** for each of the 224 classes
+- **Individual sections** for each discovered class
 - **Clear separators** and navigation between pages
 
 ## 🛠️ Technical Details
@@ -91,6 +90,9 @@ The `ALL_TRIBOT_DOCS.md` file includes:
 - `lxml` - XML/HTML parser
 - `markdownify` - HTML to markdown conversion
 - `tqdm` - Progress bars
+
+### URL Discovery
+The scraper automatically discovers all class URLs by parsing the `overview-tree.html` page from the RuneLite API documentation. This ensures you always get the latest classes without manually maintaining a URL list.
 
 ### Rate Limiting
 - 1-second delay between requests (configurable)
@@ -104,17 +106,13 @@ The `ALL_TRIBOT_DOCS.md` file includes:
 
 ## 📋 API Coverage
 
-The scraper covers all major Tribot API categories:
+The scraper covers all RuneLite API classes and interfaces, including:
 
-- **Core Interfaces**: Actionable, Clickable, Interactable, etc.
-- **Query Classes**: ActionableQuery, BankQuery, InventoryQuery, etc.
-- **Game Objects**: GameObject, Npc, Player, GroundItem, etc.
-- **Input/Output**: Mouse, Keyboard, Camera, Screenshot
-- **Banking**: Bank, BankQuery, BankSettings
-- **Combat**: Combat, Prayer, Magic
-- **Walking**: GlobalWalking, LocalWalking, DaxWalkerAdapter
-- **UI Elements**: Widget, WidgetQuery, GameTab
-- **Utilities**: Log, Waiting, Notifications, ScriptSettings
+- **Core API**: Client, Player, NPC, GameObject, etc.
+- **Events**: All event classes in `net.runelite.api.events`
+- **Coordinates**: WorldPoint, LocalPoint, Angle, etc.
+- **Widgets**: Widget, WidgetItem, etc.
+- **Utilities**: Various utility classes and helpers
 
 ## 🤖 LLM Usage
 
@@ -122,27 +120,19 @@ The generated markdown files are optimized for LLM consumption:
 
 - **Clean formatting** with proper headings and code blocks
 - **Structured content** with consistent metadata
-- **Complete coverage** of all Tribot API functionality
+- **Complete coverage** of all RuneLite API functionality
 - **Easy navigation** with table of contents and clear sections
-
-## 📈 Statistics
-
-- **Total URLs**: 224
-- **Success Rate**: 100%
-- **Total Content**: ~75,000+ lines of markdown
-- **Consolidated File Size**: ~2.5MB
-- **Scraping Time**: ~25 seconds (with rate limiting)
 
 ## 🔧 Configuration
 
 ### Command Line Options
 - `--test`: Run test with single URL only
-- `--all`: Scrape all Tribot API URLs (default)
+- `--all`: Scrape all RuneLite API URLs (default)
 - `--output DIR`: Output directory (default: scraped_docs)
 - `--delay SECONDS`: Delay between requests (default: 1.0)
 
 ### Customization
-You can modify `urls.py` to add or remove URLs, or adjust the scraper behavior in `scraper.py`.
+You can modify `urls.py` to customize URL discovery or manually add URLs. The scraper behavior can be adjusted in `scraper.py`.
 
 ## 📝 License
 
@@ -162,6 +152,5 @@ If you encounter any issues or have questions, please open an issue on GitHub.
 
 ---
 
-**Generated on**: 2025-09-11  
-**Tribot API Version**: 1.0.70  
-**Total Classes Scraped**: 224
+**RuneLite API Documentation**: https://static.runelite.net/runelite-api/apidocs/  
+**Branch**: runelite-docs-scraper

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Main script to run the Tribot JavaDoc scraper
+Main script to run the RuneLite JavaDoc scraper
 """
 
 import argparse
 import sys
 import io
-from scraper import TribotDocScraper
-from urls import TEST_URL, TRIBOT_URLS
+from scraper import RuneLiteDocScraper
+from urls import TEST_URL, RUNELITE_URLS
 from tqdm import tqdm
 
 # Fix Windows console encoding
@@ -17,11 +17,11 @@ if sys.platform == 'win32':
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Scrape Tribot JavaDoc pages')
+    parser = argparse.ArgumentParser(description='Scrape RuneLite JavaDoc pages')
     parser.add_argument('--test', action='store_true', 
                        help='Run test with single URL only')
     parser.add_argument('--all', action='store_true', 
-                       help='Scrape all Tribot API URLs (default behavior)')
+                       help='Scrape all RuneLite API URLs (default behavior)')
     parser.add_argument('--output', default='scraped_docs',
                        help='Output directory for scraped content')
     parser.add_argument('--delay', type=float, default=1.0,
@@ -33,11 +33,11 @@ def main():
     if not args.test and not args.all:
         args.all = True
     
-    scraper = TribotDocScraper()
+    scraper = RuneLiteDocScraper()
     scraper.delay = args.delay
     
     if args.test:
-        print("🧪 Running test with ActionableQuery page...")
+        print("🧪 Running test with Client page...")
         result = scraper.scrape_page(TEST_URL)
         
         if result['success']:
@@ -53,14 +53,14 @@ def main():
             print(f"❌ Test failed: {result.get('error', 'Unknown error')}")
     
     else:  # args.all or default
-        print(f"🚀 Scraping all {len(TRIBOT_URLS)} Tribot API URLs...")
+        print(f"🚀 Scraping all {len(RUNELITE_URLS)} RuneLite API URLs...")
         print(f"Output directory: {args.output}")
         print(f"Delay between requests: {args.delay}s")
         print("This will create both individual files and a consolidated file.")
         print("")
         
         results = []
-        for url in tqdm(TRIBOT_URLS, desc="Scraping pages"):
+        for url in tqdm(RUNELITE_URLS, desc="Scraping pages"):
             result = scraper.scrape_page(url)
             results.append(result)
         
@@ -75,7 +75,7 @@ def main():
         print(f"✅ Successful: {successful}")
         print(f"❌ Failed: {failed}")
         print(f"📁 Individual files saved to: {args.output}/")
-        print(f"📄 Consolidated file: {args.output}/ALL_TRIBOT_DOCS.md")
+        print(f"📄 Consolidated file: {args.output}/ALL_RUNELITE_DOCS.md")
         
         if failed > 0:
             print(f"\n❌ Failed URLs:")

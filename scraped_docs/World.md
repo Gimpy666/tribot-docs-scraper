@@ -1,269 +1,180 @@
-# World (tribot-script-sdk 1.0.70 API)
+# World (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/World.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/World.html
 
-**Package:** Packageorg.tribot.script.sdk.types
+**Package:** Packagenet.runelite.api
+
+**Description:** For example, world 2 would return "Trade - Members"....
 
 ---
-
-* java.lang.Object
-* + org.tribot.script.sdk.types.World
 
 * ---
 
 ```
-public class World
-extends java.lang.Object
+public interface World
 ```
 
-Represents a world in the list of worlds available
+Holds data of a RuneScape world.
 
-See Also:
-[`Query.worlds()`](../query/Query.html#worlds())
+* + ### Method Summary
 
-* + ### Nested Class Summary
+All Methods [Instance Methods](javascript:show(2);) [Abstract Methods](javascript:show(4);) | Modifier and Type | Method | Description |
+| `[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang")` | `[getActivity](#getActivity())()` | Gets the world activity description. |
+| `[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang")` | `[getAddress](#getAddress())()` | Gets the address of the world. |
+| `int` | `[getId](#getId())()` | Gets the world number. |
+| `int` | `[getIndex](#getIndex())()` | Gets the worlds index. |
+| `int` | `[getLocation](#getLocation())()` | Gets the world location value. |
+| `int` | `[getPlayerCount](#getPlayerCount())()` | Gets the current number of players logged in the world. |
+| `[EnumSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumSet.html?is-external=true "class or interface in java.util")<[WorldType](WorldType.html "enum in net.runelite.api")>` | `[getTypes](#getTypes())()` | Gets all applicable world types for this world. |
+| `void` | `[setActivity](#setActivity(java.lang.String))​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") activity)` | Sets the world activity description. |
+| `void` | `[setAddress](#setAddress(java.lang.String))​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") address)` | Sets the address of the world. |
+| `void` | `[setId](#setId(int))​(int id)` | Sets the world number. |
+| `void` | `[setIndex](#setIndex(int))​(int index)` | Sets the worlds index. |
+| `void` | `[setLocation](#setLocation(int))​(int location)` | Sets the world location value. |
+| `void` | `[setPlayerCount](#setPlayerCount(int))​(int playerCount)` | Sets the player count of the world. |
+| `void` | `[setTypes](#setTypes(java.util.EnumSet))​([EnumSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumSet.html?is-external=true "class or interface in java.util")<[WorldType](WorldType.html "enum in net.runelite.api")> types)` | Sets world types. |
 
-Nested Classes | Modifier and Type | Class | Description |
-| `static class` | `[World.Location](World.Location.html "enum in org.tribot.script.sdk.types")` | Represents the location that a world can have. |
-| `static class` | `[World.Type](World.Type.html "enum in org.tribot.script.sdk.types")` | Represents the types that a world can have. |
+* + ### Method Detail
 
-+ ### Constructor Summary
-
-Constructors | Constructor | Description |
-| `[World](#%3Cinit%3E(org.tribot.api2007.types.RSServer))​(org.tribot.api2007.types.RSServer server)` | |
-
-+ ### Method Summary
-
-All Methods [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `boolean` | `[equals](#equals(java.lang.Object))​(java.lang.Object o)` | |
-| `java.util.Optional<java.lang.String>` | `[getActivity](#getActivity())()` | Gets the name of the activity of this world |
-| `java.lang.String` | `[getHostAddress](#getHostAddress())()` | Gets the host domain address (ex. |
-| `[World.Location](World.Location.html "enum in org.tribot.script.sdk.types")` | `[getLocation](#getLocation())()` | Gets the world [`World.Location`](World.Location.html "enum in org.tribot.script.sdk.types") |
-| `java.util.Optional<java.lang.Integer>` | `[getPing](#getPing())()` | Attempts to calculate the ping for this world. |
-| `int` | `[getPlayerCount](#getPlayerCount())()` | Gets the number of players listed in this world |
-| `int` | `[getTotalLevelRequirement](#getTotalLevelRequirement())()` | Gets the total level requirement for this world |
-| `java.util.Set<[World.Type](World.Type.html "enum in org.tribot.script.sdk.types")>` | `[getTypes](#getTypes())()` | Gets all the types of this world. |
-| `int` | `[getWorldNumber](#getWorldNumber())()` | Gets the number of this world, ex. |
-| `int` | `[hashCode](#hashCode())()` | |
-| `boolean` | `[isDangerous](#isDangerous())()` | Checks if this world has some alternative combat rules or form of items lost on death. |
-| `boolean` | `[isLowPing](#isLowPing())()` | Checks if this world has low ping relative to other worlds. |
-| `boolean` | `[isMainGame](#isMainGame())()` | Checks if this world is a part of the 'main' game, not some secondary game mode |
-| `boolean` | `[isMembers](#isMembers())()` | Checks if this world is a members world |
-| `boolean` | `[isRequirementsMet](#isRequirementsMet())()` | Checks if this world can be entered, the best it can with the information available. |
-| `boolean` | `[isType](#isType(org.tribot.script.sdk.types.World.Type...))​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)` | Checks if this world matches all the specified types |
-| `boolean` | `[isTypesAny](#isTypesAny(org.tribot.script.sdk.types.World.Type...))​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)` | Checks if this world matches any of the specified types |
-| `boolean` | `[isTypesExactly](#isTypesExactly(org.tribot.script.sdk.types.World.Type...))​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)` | Checks if this world matches the specified types exactly. |
-| `java.lang.String` | `[toString](#toString())()` | |
-
-- ### Methods inherited from class java.lang.Object
-
-`clone, finalize, getClass, notify, notifyAll, wait, wait, wait`
-
-* + ### Constructor Detail
-
-- #### World
-
-```
-public World​(org.tribot.api2007.types.RSServer server)
-```
-
-+ ### Method Detail
-
-- #### getWorldNumber
-
-```
-public int getWorldNumber()
-```
-
-Gets the number of this world, ex. 301
-
-Returns:
-the world number
-- #### getActivity
-
-```
-public java.util.Optional<java.lang.String> getActivity()
-```
-
-Gets the name of the activity of this world
-
-Returns:
-the name of the activity of this world
-- #### getPlayerCount
-
-```
-public int getPlayerCount()
-```
-
-Gets the number of players listed in this world
-
-Returns:
-the number of players listed in this world
-- #### getHostAddress
-
-```
-public java.lang.String getHostAddress()
-```
-
-Gets the host domain address (ex. oldschool93.runescape.com)
-
-Returns:
-the host domain address, never null
-- #### getLocation
-
-```
-public [World.Location](World.Location.html "enum in org.tribot.script.sdk.types") getLocation()
-```
-
-Gets the world [`World.Location`](World.Location.html "enum in org.tribot.script.sdk.types")
-
-Returns:
-the world location, never null
 - #### getTypes
 
 ```
-public java.util.Set<[World.Type](World.Type.html "enum in org.tribot.script.sdk.types")> getTypes()
+[EnumSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumSet.html?is-external=true "class or interface in java.util")<[WorldType](WorldType.html "enum in net.runelite.api")> getTypes()
 ```
 
-Gets all the types of this world. It may have multiple types.
+Gets all applicable world types for this world.
 
 Returns:
-the types of this world
-- #### isType
+the world types
+- #### setTypes
 
 ```
-public boolean isType​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)
+void setTypes​([EnumSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumSet.html?is-external=true "class or interface in java.util")<[WorldType](WorldType.html "enum in net.runelite.api")> types)
 ```
 
-Checks if this world matches all the specified types
+Sets world types.
 
 Parameters:
-`types` - the types to check
+`types` - the types
+- #### getPlayerCount
+
+```
+int getPlayerCount()
+```
+
+Gets the current number of players logged in the world.
+
 Returns:
-true if this world is all of the specified types, false otherwise
-- #### isTypesAny
+the player count
+- #### setPlayerCount
 
 ```
-public boolean isTypesAny​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)
+void setPlayerCount​(int playerCount)
 ```
 
-Checks if this world matches any of the specified types
+Sets the player count of the world.
 
 Parameters:
-`types` - the types to check
+`playerCount` - the new player count
+- #### getLocation
+
+```
+int getLocation()
+```
+
+Gets the world location value.
+
 Returns:
-true if this world matches any of the specified types, false otherwise
-- #### isTypesExactly
+the world location
+- #### setLocation
 
 ```
-public boolean isTypesExactly​([World.Type](World.Type.html "enum in org.tribot.script.sdk.types")... types)
+void setLocation​(int location)
 ```
 
-Checks if this world matches the specified types exactly.
-This means that this world contains no other types other then the specified types.
+Sets the world location value.
 
 Parameters:
-`types` - the types to check
-Returns:
-true if this world matches the specified types exactly, false otherwise
-- #### isMembers
+`location` - the location
+- #### getIndex
 
 ```
-public boolean isMembers()
+int getIndex()
 ```
 
-Checks if this world is a members world
+Gets the worlds index.
 
 Returns:
-true if this is a members world, false otherwise
-- #### getPing
+the index
+- #### setIndex
 
 ```
-public java.util.Optional<java.lang.Integer> getPing()
+void setIndex​(int index)
 ```
 
-Attempts to calculate the ping for this world. It will time how long it takes to connect a socket to the world's host address.
-The resulting ping is cached for up to 15 minutes to avoid repeated connections. This can take up to two seconds (it will time out and fail after two seconds).
+Sets the worlds index.
 
-Note that this may not be the 'true' ping but is generally an accurate estimation in most cases.
+Parameters:
+`index` - the index
+- #### getId
+
+```
+int getId()
+```
+
+Gets the world number.
 
 Returns:
-the ping to this world, or an empty optional if there was an issue getting the ping
-- #### isLowPing
+the world number
+- #### setId
 
 ```
-public boolean isLowPing()
+void setId​(int id)
 ```
 
-Checks if this world has low ping relative to other worlds.
+Sets the world number.
 
-Note that this operation could take a while, it has to get the ping of all other worlds.
+Parameters:
+`id` - the world number
+- #### getActivity
+
+```
+[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") getActivity()
+```
+
+Gets the world activity description.
+
+For example, world 2 would return "Trade - Members".
 
 Returns:
-true if this world has low ping relative to other worlds, false otherwise
-- #### isMainGame
+the world activity
+- #### setActivity
 
 ```
-public boolean isMainGame()
+void setActivity​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") activity)
 ```
 
-Checks if this world is a part of the 'main' game, not some secondary game mode
+Sets the world activity description.
+
+Parameters:
+`activity` - the activity
+- #### getAddress
+
+```
+[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") getAddress()
+```
+
+Gets the address of the world.
 
 Returns:
-true if this is the 'main' game and false if it is a secondary game mode
-- #### getTotalLevelRequirement
+the world address
+- #### setAddress
 
 ```
-public int getTotalLevelRequirement()
+void setAddress​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") address)
 ```
 
-Gets the total level requirement for this world
+Sets the address of the world.
 
-Returns:
-the total level requirement for this world, 0 if none
-- #### isDangerous
-
-```
-public boolean isDangerous()
-```
-
-Checks if this world has some alternative combat rules or form of items lost on death.
-For example, PvP worlds and high-risk worlds are considered dangerous.
-
-Returns:
-true if this is a dangerous world according to the above criteria, false otherwise
-- #### isRequirementsMet
-
-```
-public boolean isRequirementsMet()
-```
-
-Checks if this world can be entered, the best it can with the information available.
-Some things like play-time aren't available and can't be checked for bounty hunter.
-
-Returns:
-true if the player can enter this world, false otherwise
-- #### equals
-
-```
-public boolean equals​(java.lang.Object o)
-```
-
-Overrides:
-`equals` in class `java.lang.Object`
-- #### hashCode
-
-```
-public int hashCode()
-```
-
-Overrides:
-`hashCode` in class `java.lang.Object`
-- #### toString
-
-```
-public java.lang.String toString()
-```
-
-Overrides:
-`toString` in class `java.lang.Object`
+Parameters:
+`address` - the address

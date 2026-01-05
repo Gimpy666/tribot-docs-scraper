@@ -1,122 +1,85 @@
-# Hitsplat (tribot-script-sdk 1.0.70 API)
+# Hitsplat (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Hitsplat.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Hitsplat.html
 
-**Package:** Packageorg.tribot.script.sdk.types
-
----
-
-* java.lang.Object
-* + org.tribot.script.sdk.types.Hitsplat
-
-* All Implemented Interfaces:
-`[Indexable](../interfaces/Indexable.html "interface in org.tribot.script.sdk.interfaces")`
+**Package:** Packagenet.runelite.api
 
 ---
+
+* [java.lang.Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
+* + net.runelite.api.Hitsplat
+
+* ---
 
 ```
 public class Hitsplat
-extends java.lang.Object
-implements [Indexable](../interfaces/Indexable.html "interface in org.tribot.script.sdk.interfaces")
+extends [Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 ```
 
-A hitsplat visible on a [`Character`](../interfaces/Character.html "interface in org.tribot.script.sdk.interfaces")
+A hitsplat that has been applied to an [`Actor`](Actor.html "interface in net.runelite.api").
 
-* + ### Nested Class Summary
+* + ### Constructor Summary
 
-Nested Classes | Modifier and Type | Class | Description |
-| `static class` | `[Hitsplat.Type](Hitsplat.Type.html "enum in org.tribot.script.sdk.types")` | An enumeration of hitsplat types. |
+Constructors | Constructor | Description |
+| `[Hitsplat](#%3Cinit%3E(int,int,int))​(int hitsplatType,
+int amount,
+int disappearsOnGameCycle)` | |
 
 + ### Method Summary
 
 All Methods [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `boolean` | `[equals](#equals(java.lang.Object))​(java.lang.Object o)` | |
-| `int` | `[getIndex](#getIndex())()` | Gets the index of the entity. |
-| `[Hitsplat.Type](Hitsplat.Type.html "enum in org.tribot.script.sdk.types")` | `[getType](#getType())()` | Gets the type of hitsplat |
-| `int` | `[getValue](#getValue())()` | The hitsplat value (the amount of damage) |
-| `int` | `[hashCode](#hashCode())()` | |
-| `boolean` | `[isMine](#isMine())()` | Checks if this hitsplat is from my player |
-| `boolean` | `[isOthers](#isOthers())()` | Checks if this hitsplat is not from my player |
-| `java.lang.String` | `[toString](#toString())()` | |
+| `int` | `[getAmount](#getAmount())()` | The value displayed by the hitsplat. |
+| `int` | `[getDisappearsOnGameCycle](#getDisappearsOnGameCycle())()` | When the hitsplat will disappear. |
+| `int` | `[getHitsplatType](#getHitsplatType())()` | The type of hitsplat. |
+| `boolean` | `[isMine](#isMine())()` | |
+| `boolean` | `[isOthers](#isOthers())()` | |
 
-- ### Methods inherited from class java.lang.Object
+- ### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 
-`clone, finalize, getClass, notify, notifyAll, wait, wait, wait`
+`[clone](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#clone() "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#equals(java.lang.Object) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#finalize() "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#getClass() "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#hashCode() "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notify() "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notifyAll() "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#toString() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long,int) "class or interface in java.lang")`
 
-* + ### Method Detail
+* + ### Constructor Detail
 
-- #### getIndex
+- #### Hitsplat
 
 ```
-public int getIndex()
+public Hitsplat​([@HitsplatType](annotations/HitsplatType.html "annotation in net.runelite.api.annotations")
+int hitsplatType,
+int amount,
+int disappearsOnGameCycle)
 ```
 
-Description copied from interface: `[Indexable](../interfaces/Indexable.html#getIndex())`
-Gets the index of the entity.
++ ### Method Detail
 
-Specified by:
-`[getIndex](../interfaces/Indexable.html#getIndex())` in interface `[Indexable](../interfaces/Indexable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getValue
-
-```
-public int getValue()
-```
-
-The hitsplat value (the amount of damage)
-
-Returns:
-the hitsplat value
-- #### getType
-
-```
-public [Hitsplat.Type](Hitsplat.Type.html "enum in org.tribot.script.sdk.types") getType()
-```
-
-Gets the type of hitsplat
-
-Returns:
-the type of hitsplat
 - #### isMine
 
 ```
 public boolean isMine()
 ```
-
-Checks if this hitsplat is from my player
-
-Returns:
-true if this is from my player, false otherwise
 - #### isOthers
 
 ```
 public boolean isOthers()
 ```
-
-Checks if this hitsplat is not from my player
-
-Returns:
-true if this is from my player, false otherwise
-- #### equals
+- #### getHitsplatType
 
 ```
-public boolean equals​(java.lang.Object o)
+[@HitsplatType](annotations/HitsplatType.html "annotation in net.runelite.api.annotations")
+public int getHitsplatType()
 ```
 
-Overrides:
-`equals` in class `java.lang.Object`
-- #### hashCode
+The type of hitsplat.
+- #### getAmount
 
 ```
-public int hashCode()
+public int getAmount()
 ```
 
-Overrides:
-`hashCode` in class `java.lang.Object`
-- #### toString
+The value displayed by the hitsplat.
+- #### getDisappearsOnGameCycle
 
 ```
-public java.lang.String toString()
+public int getDisappearsOnGameCycle()
 ```
 
-Overrides:
-`toString` in class `java.lang.Object`
+When the hitsplat will disappear.

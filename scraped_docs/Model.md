@@ -1,129 +1,273 @@
-# Model (tribot-script-sdk 1.0.70 API)
+# Model (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Model.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Model.html
 
-**Package:** Packageorg.tribot.script.sdk.types
+**Package:** Packagenet.runelite.api
 
 ---
 
-* java.lang.Object
-* + org.tribot.script.sdk.types.Model
+* All Superinterfaces:
+`[Mesh](Mesh.html "interface in net.runelite.api")<[Model](Model.html "interface in net.runelite.api")>`, `[Node](Node.html "interface in net.runelite.api")`, `[Renderable](Renderable.html "interface in net.runelite.api")`
 
-* ---
-
-```
-public class Model
-extends java.lang.Object
-```
-
-Represents an entity model viewable on the game screen, such as a player or game object
-
-* + ### Constructor Summary
-
-Constructors | Constructor | Description |
-| `[Model](#%3Cinit%3E(org.tribot.api2007.types.RSModel))​(org.tribot.api2007.types.RSModel model)` | |
-
-+ ### Method Summary
-
-All Methods [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `java.util.Optional<java.awt.Polygon>` | `[getBounds](#getBounds())()` | Gets the polygon model bounds on the game screen |
-| `int` | `[getBoundsArea](#getBoundsArea())()` | Gets the total area of this model |
-| `java.util.Optional<java.awt.Point>` | `[getCenterPoint](#getCenterPoint())()` | Gets the center point of this model |
-| `java.util.Optional<java.awt.Shape>` | `[getClickArea](#getClickArea())()` | Gets the click area of this model. |
-| `int` | `[getIndexCount](#getIndexCount())()` | Gets the number of indices in the model |
-| `java.util.List<java.awt.Point>` | `[getPoints](#getPoints())()` | Gets the points in this model |
-| `int` | `[getVertexCount](#getVertexCount())()` | Gets the number of vertices in the model |
-| `java.lang.String` | `[toString](#toString())()` | |
-
-- ### Methods inherited from class java.lang.Object
-
-`clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait`
-
-* + ### Constructor Detail
-
-- #### Model
+---
 
 ```
-public Model​(org.tribot.api2007.types.RSModel model)
+public interface Model
+extends [Mesh](Mesh.html "interface in net.runelite.api")<[Model](Model.html "interface in net.runelite.api")>, [Renderable](Renderable.html "interface in net.runelite.api")
 ```
 
-+ ### Method Detail
+Represents the model of an object.
 
-- #### getBounds
+* + ### Method Summary
 
-```
-public java.util.Optional<java.awt.Polygon> getBounds()
-```
+All Methods [Instance Methods](javascript:show(2);) [Abstract Methods](javascript:show(4);) [Deprecated Methods](javascript:show(32);) | Modifier and Type | Method | Description |
+| `void` | `[calculateBoundsCylinder](#calculateBoundsCylinder())()` | |
+| `void` | `[calculateExtreme](#calculateExtreme(int))​(int orientation)` | Deprecated. |
+| `void` | `[drawFrustum](#drawFrustum(int,int,int,int,int,int,int))​(int zero,
+int xRotate,
+int yRotate,
+int zRotate,
+int xCamera,
+int yCamera,
+int zCamera)` | |
+| `void` | `[drawOrtho](#drawOrtho(int,int,int,int,int,int,int,int))​(int zero,
+int xRotate,
+int yRotate,
+int zRotate,
+int xCamera,
+int yCamera,
+int zCamera,
+int zoom)` | |
+| `[AABB](AABB.html "interface in net.runelite.api")` | `[getAABB](#getAABB(int))​(int orientation)` | |
+| `int` | `[getBottomY](#getBottomY())()` | |
+| `int` | `[getBufferOffset](#getBufferOffset())()` | |
+| `int` | `[getDiameter](#getDiameter())()` | |
+| `byte[]` | `[getFaceBias](#getFaceBias())()` | |
+| `int[]` | `[getFaceColors1](#getFaceColors1())()` | |
+| `int[]` | `[getFaceColors2](#getFaceColors2())()` | |
+| `int[]` | `[getFaceColors3](#getFaceColors3())()` | |
+| `byte[]` | `[getFaceRenderPriorities](#getFaceRenderPriorities())()` | |
+| `byte` | `[getOverrideAmount](#getOverrideAmount())()` | |
+| `byte` | `[getOverrideHue](#getOverrideHue())()` | |
+| `byte` | `[getOverrideLuminance](#getOverrideLuminance())()` | |
+| `byte` | `[getOverrideSaturation](#getOverrideSaturation())()` | |
+| `int` | `[getRadius](#getRadius())()` | |
+| `int` | `[getSceneId](#getSceneId())()` | |
+| `int[]` | `[getTexIndices1](#getTexIndices1())()` | |
+| `int[]` | `[getTexIndices2](#getTexIndices2())()` | |
+| `int[]` | `[getTexIndices3](#getTexIndices3())()` | |
+| `byte[]` | `[getTextureFaces](#getTextureFaces())()` | |
+| `short[]` | `[getUnlitFaceColors](#getUnlitFaceColors())()` | |
+| `[Model](Model.html "interface in net.runelite.api")` | `[getUnskewedModel](#getUnskewedModel())()` | |
+| `int` | `[getUvBufferOffset](#getUvBufferOffset())()` | |
+| `int[]` | `[getVertexNormalsX](#getVertexNormalsX())()` | |
+| `int[]` | `[getVertexNormalsY](#getVertexNormalsY())()` | |
+| `int[]` | `[getVertexNormalsZ](#getVertexNormalsZ())()` | |
+| `int` | `[getXYZMag](#getXYZMag())()` | |
+| `void` | `[setBufferOffset](#setBufferOffset(int))​(int bufferOffset)` | |
+| `void` | `[setSceneId](#setSceneId(int))​(int sceneId)` | |
+| `void` | `[setUvBufferOffset](#setUvBufferOffset(int))​(int bufferOffset)` | |
+| `boolean` | `[useBoundingBox](#useBoundingBox())()` | |
 
-Gets the polygon model bounds on the game screen
+- ### Methods inherited from interface net.runelite.api.[Mesh](Mesh.html "interface in net.runelite.api")
 
-Returns:
-the polygon model bounds on the game screen
-- #### getClickArea
+`[getFaceCount](Mesh.html#getFaceCount()), [getFaceIndices1](Mesh.html#getFaceIndices1()), [getFaceIndices2](Mesh.html#getFaceIndices2()), [getFaceIndices3](Mesh.html#getFaceIndices3()), [getFaceTextures](Mesh.html#getFaceTextures()), [getFaceTransparencies](Mesh.html#getFaceTransparencies()), [getVerticesCount](Mesh.html#getVerticesCount()), [getVerticesX](Mesh.html#getVerticesX()), [getVerticesY](Mesh.html#getVerticesY()), [getVerticesZ](Mesh.html#getVerticesZ()), [rotateY180Ccw](Mesh.html#rotateY180Ccw()), [rotateY270Ccw](Mesh.html#rotateY270Ccw()), [rotateY90Ccw](Mesh.html#rotateY90Ccw()), [scale](Mesh.html#scale(int,int,int)), [translate](Mesh.html#translate(int,int,int))`
+- ### Methods inherited from interface net.runelite.api.[Node](Node.html "interface in net.runelite.api")
 
-```
-public java.util.Optional<java.awt.Shape> getClickArea()
-```
+`[getHash](Node.html#getHash()), [getNext](Node.html#getNext()), [getPrevious](Node.html#getPrevious())`
+- ### Methods inherited from interface net.runelite.api.[Renderable](Renderable.html "interface in net.runelite.api")
 
-Gets the click area of this model. This click area is where the mouse can move to for a menu action to be added for this entity.
+`[getAnimationHeightOffset](Renderable.html#getAnimationHeightOffset()), [getModel](Renderable.html#getModel()), [getModelHeight](Renderable.html#getModelHeight()), [setModelHeight](Renderable.html#setModelHeight(int))`
 
-Returns:
-the click area of this model
-- #### getPoints
+* + ### Method Detail
 
-```
-public java.util.List<java.awt.Point> getPoints()
-```
-
-Gets the points in this model
-
-Returns:
-the points in this model
-- #### getCenterPoint
-
-```
-public java.util.Optional<java.awt.Point> getCenterPoint()
-```
-
-Gets the center point of this model
-
-Returns:
-the center point of this model
-- #### getIndexCount
-
-```
-public int getIndexCount()
-```
-
-Gets the number of indices in the model
-
-Returns:
-the number of indices in the model
-- #### getVertexCount
-
-```
-public int getVertexCount()
-```
-
-Gets the number of vertices in the model
-
-Returns:
-the number of vertices in the model
-- #### getBoundsArea
-
-```
-public int getBoundsArea()
-```
-
-Gets the total area of this model
-
-Returns:
-the total area of this model
-- #### toString
+- #### getFaceColors1
 
 ```
-public java.lang.String toString()
+int[] getFaceColors1()
+```
+- #### getFaceColors2
+
+```
+int[] getFaceColors2()
+```
+- #### getFaceColors3
+
+```
+int[] getFaceColors3()
+```
+- #### getUnlitFaceColors
+
+```
+short[] getUnlitFaceColors()
+```
+- #### getSceneId
+
+```
+int getSceneId()
+```
+- #### setSceneId
+
+```
+void setSceneId​(int sceneId)
+```
+- #### getBufferOffset
+
+```
+int getBufferOffset()
+```
+- #### setBufferOffset
+
+```
+void setBufferOffset​(int bufferOffset)
+```
+- #### getUvBufferOffset
+
+```
+int getUvBufferOffset()
+```
+- #### setUvBufferOffset
+
+```
+void setUvBufferOffset​(int bufferOffset)
+```
+- #### getBottomY
+
+```
+int getBottomY()
+```
+- #### calculateBoundsCylinder
+
+```
+void calculateBoundsCylinder()
+```
+- #### getFaceRenderPriorities
+
+```
+byte[] getFaceRenderPriorities()
+```
+- #### getFaceBias
+
+```
+byte[] getFaceBias()
+```
+- #### getRadius
+
+```
+int getRadius()
+```
+- #### getDiameter
+
+```
+int getDiameter()
+```
+- #### calculateExtreme
+
+```
+[@Deprecated](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Deprecated.html?is-external=true "class or interface in java.lang")
+void calculateExtreme​(int orientation)
 ```
 
-Overrides:
-`toString` in class `java.lang.Object`
+Deprecated.
+
+See Also:
+[`getAABB(int)`](#getAABB(int))
+- #### getAABB
+
+```
+@Nonnull
+[AABB](AABB.html "interface in net.runelite.api") getAABB​(int orientation)
+```
+- #### getXYZMag
+
+```
+int getXYZMag()
+```
+- #### useBoundingBox
+
+```
+boolean useBoundingBox()
+```
+- #### getVertexNormalsX
+
+```
+int[] getVertexNormalsX()
+```
+- #### getVertexNormalsY
+
+```
+int[] getVertexNormalsY()
+```
+- #### getVertexNormalsZ
+
+```
+int[] getVertexNormalsZ()
+```
+- #### getOverrideAmount
+
+```
+byte getOverrideAmount()
+```
+- #### getOverrideHue
+
+```
+byte getOverrideHue()
+```
+- #### getOverrideSaturation
+
+```
+byte getOverrideSaturation()
+```
+- #### getOverrideLuminance
+
+```
+byte getOverrideLuminance()
+```
+- #### getTextureFaces
+
+```
+byte[] getTextureFaces()
+```
+- #### getTexIndices1
+
+```
+int[] getTexIndices1()
+```
+- #### getTexIndices2
+
+```
+int[] getTexIndices2()
+```
+- #### getTexIndices3
+
+```
+int[] getTexIndices3()
+```
+- #### getUnskewedModel
+
+```
+[Model](Model.html "interface in net.runelite.api") getUnskewedModel()
+```
+- #### drawFrustum
+
+```
+void drawFrustum​(int zero,
+int xRotate,
+int yRotate,
+int zRotate,
+int xCamera,
+int yCamera,
+int zCamera)
+```
+- #### drawOrtho
+
+```
+void drawOrtho​(int zero,
+int xRotate,
+int yRotate,
+int zRotate,
+int xCamera,
+int yCamera,
+int zCamera,
+int zoom)
+```

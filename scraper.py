@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Tribot JavaDoc Scraper
+RuneLite JavaDoc Scraper
 
-This script scrapes JavaDoc pages from the Tribot API documentation
+This script scrapes JavaDoc pages from the RuneLite API documentation
 and converts them to well-formatted markdown for LLM consumption.
 """
 
@@ -17,8 +17,8 @@ import json
 from pathlib import Path
 
 
-class TribotDocScraper:
-    def __init__(self, base_url: str = "https://runeautomation.com/docs/sdk/javadocs/"):
+class RuneLiteDocScraper:
+    def __init__(self, base_url: str = "https://static.runelite.net/runelite-api/apidocs/"):
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
@@ -234,7 +234,7 @@ class TribotDocScraper:
         # Create consolidated file with all pages
         if successful_results:
             consolidated_content = self._create_consolidated_file(successful_results)
-            consolidated_path = output_path / "ALL_TRIBOT_DOCS.md"
+            consolidated_path = output_path / "ALL_RUNELITE_DOCS.md"
             with open(consolidated_path, 'w', encoding='utf-8') as f:
                 f.write(consolidated_content)
             print(f"Consolidated file created: {consolidated_path}")
@@ -252,16 +252,16 @@ class TribotDocScraper:
             
         print(f"Results saved to {output_path}")
         print(f"Individual files: {len(successful_results)}")
-        print(f"Consolidated file: ALL_TRIBOT_DOCS.md")
+        print(f"Consolidated file: ALL_RUNELITE_DOCS.md")
     
     def _create_consolidated_file(self, results: List[Dict[str, str]]) -> str:
         """Create a single consolidated file with all scraped content."""
         consolidated = []
         
         # Add header
-        consolidated.append("# Tribot API Documentation - Complete Reference")
+        consolidated.append("# RuneLite API Documentation - Complete Reference")
         consolidated.append("")
-        consolidated.append("This file contains all scraped Tribot API documentation pages.")
+        consolidated.append("This file contains all scraped RuneLite API documentation pages.")
         consolidated.append(f"Generated on: {time.strftime('%Y-%m-%d %H:%M:%S')}")
         consolidated.append(f"Total pages: {len(results)}")
         consolidated.append("")
@@ -312,16 +312,16 @@ class TribotDocScraper:
 
 def main():
     """Main function to run the scraper."""
-    from urls import TRIBOT_URLS
+    from urls import RUNELITE_URLS
     
-    scraper = TribotDocScraper()
+    scraper = RuneLiteDocScraper()
     
-    print(f"🚀 Starting to scrape all {len(TRIBOT_URLS)} Tribot API URLs...")
+    print(f"🚀 Starting to scrape all {len(RUNELITE_URLS)} RuneLite API URLs...")
     print("This will take several minutes due to rate limiting...")
     print("")
     
     # Scrape all URLs
-    results = scraper.scrape_multiple_pages(TRIBOT_URLS)
+    results = scraper.scrape_multiple_pages(RUNELITE_URLS)
     
     # Save all results
     scraper.save_results(results, "scraped_docs")
@@ -334,7 +334,7 @@ def main():
     print(f"✅ Successful: {successful}")
     print(f"❌ Failed: {failed}")
     print(f"📁 Individual files saved to: scraped_docs/")
-    print(f"📄 Consolidated file: scraped_docs/ALL_TRIBOT_DOCS.md")
+    print(f"📄 Consolidated file: scraped_docs/ALL_RUNELITE_DOCS.md")
     
     if failed > 0:
         print(f"\n❌ Failed URLs:")

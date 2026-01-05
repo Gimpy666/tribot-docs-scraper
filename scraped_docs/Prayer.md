@@ -1,260 +1,495 @@
-# Prayer (tribot-script-sdk 1.0.70 API)
+# Prayer (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Prayer.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Prayer.html
 
-**Package:** Packageorg.tribot.script.sdk
+**Package:** Packagenet.runelite.api
 
 ---
 
-* java.lang.Object
-* + java.lang.Enum<[Prayer](Prayer.html "enum in org.tribot.script.sdk")>
-+ - org.tribot.script.sdk.Prayer
+* [java.lang.Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
+* + [java.lang.Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")<[Prayer](Prayer.html "enum in net.runelite.api")>
++ - net.runelite.api.Prayer
 
 * All Implemented Interfaces:
-`java.io.Serializable`, `java.lang.Comparable<[Prayer](Prayer.html "enum in org.tribot.script.sdk")>`
+`[Serializable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true "class or interface in java.io")`, `[Comparable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html?is-external=true "class or interface in java.lang")<[Prayer](Prayer.html "enum in net.runelite.api")>`
 
 ---
 
 ```
 public enum Prayer
-extends java.lang.Enum<[Prayer](Prayer.html "enum in org.tribot.script.sdk")>
+extends [Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")<[Prayer](Prayer.html "enum in net.runelite.api")>
 ```
 
-A prayer listed under the prayer tab
+An enumeration of prayers.
 
 * + ### Enum Constant Summary
 
 Enum Constants | Enum Constant | Description |
-| `[AUGURY](#AUGURY)` | |
-| `[BURST\_OF\_STRENGTH](#BURST_OF_STRENGTH)` | |
-| `[CHIVALRY](#CHIVALRY)` | |
-| `[CLARITY\_OF\_THOUGHT](#CLARITY_OF_THOUGHT)` | |
-| `[DEADEYE](#DEADEYE)` | |
-| `[EAGLE\_EYE](#EAGLE_EYE)` | |
-| `[HAWK\_EYE](#HAWK_EYE)` | |
-| `[IMPROVED\_REFLEXES](#IMPROVED_REFLEXES)` | |
-| `[INCREDIBLE\_REFLEXES](#INCREDIBLE_REFLEXES)` | |
-| `[MYSTIC\_LORE](#MYSTIC_LORE)` | |
-| `[MYSTIC\_MIGHT](#MYSTIC_MIGHT)` | |
-| `[MYSTIC\_VIGOUR](#MYSTIC_VIGOUR)` | |
-| `[MYSTIC\_WILL](#MYSTIC_WILL)` | |
-| `[PIETY](#PIETY)` | |
-| `[PRESERVE](#PRESERVE)` | |
-| `[PROTECT\_FROM\_MAGIC](#PROTECT_FROM_MAGIC)` | |
-| `[PROTECT\_FROM\_MELEE](#PROTECT_FROM_MELEE)` | |
-| `[PROTECT\_FROM\_MISSILES](#PROTECT_FROM_MISSILES)` | |
-| `[PROTECT\_ITEMS](#PROTECT_ITEMS)` | |
-| `[RAPID\_HEAL](#RAPID_HEAL)` | |
-| `[RAPID\_RESTORE](#RAPID_RESTORE)` | |
-| `[REDEMPTION](#REDEMPTION)` | |
-| `[RETRIBUTION](#RETRIBUTION)` | |
-| `[RIGOUR](#RIGOUR)` | |
-| `[ROCK\_SKIN](#ROCK_SKIN)` | |
-| `[SHARP\_EYE](#SHARP_EYE)` | |
-| `[SMITE](#SMITE)` | |
-| `[STEEL\_SKIN](#STEEL_SKIN)` | |
-| `[SUPERHUMAN\_STRENGTH](#SUPERHUMAN_STRENGTH)` | |
-| `[THICK\_SKIN](#THICK_SKIN)` | |
-| `[ULTIMATE\_STRENGTH](#ULTIMATE_STRENGTH)` | |
+| `[AUGURY](#AUGURY)` | Augury (Level 77, Magic/Magic Def./Defence). |
+| `[BURST\_OF\_STRENGTH](#BURST_OF_STRENGTH)` | Burst of Strength (Level 4, Strength). |
+| `[CHIVALRY](#CHIVALRY)` | Chivalry (Level 60, Defence/Strength/Attack). |
+| `[CLARITY\_OF\_THOUGHT](#CLARITY_OF_THOUGHT)` | Clarity of Thought (Level 7, Attack). |
+| `[DEADEYE](#DEADEYE)` | Deadeye (Level 62, Ranging/Damage/Defence). |
+| `[EAGLE\_EYE](#EAGLE_EYE)` | Eagle Eye (Level 44, Ranging). |
+| `[HAWK\_EYE](#HAWK_EYE)` | Hawk Eye (Level 26, Ranging). |
+| `[IMPROVED\_REFLEXES](#IMPROVED_REFLEXES)` | Improved Reflexes (Level 16, Attack). |
+| `[INCREDIBLE\_REFLEXES](#INCREDIBLE_REFLEXES)` | Incredible Reflexes (Level 34, Attack). |
+| `[MYSTIC\_LORE](#MYSTIC_LORE)` | Mystic Lore (Level 27, Magic). |
+| `[MYSTIC\_MIGHT](#MYSTIC_MIGHT)` | Mystic Might (Level 45, Magic). |
+| `[MYSTIC\_VIGOUR](#MYSTIC_VIGOUR)` | Mystic Vigour (Level 63, Magic/Magic Def./Defence). |
+| `[MYSTIC\_WILL](#MYSTIC_WILL)` | Mystic Will (Level 9, Magic). |
+| `[PIETY](#PIETY)` | Piety (Level 70, Defence/Strength/Attack). |
+| `[PRESERVE](#PRESERVE)` | Preserve (Level 55). |
+| `[PROTECT\_FROM\_MAGIC](#PROTECT_FROM_MAGIC)` | Protect from Magic (Level 37). |
+| `[PROTECT\_FROM\_MELEE](#PROTECT_FROM_MELEE)` | Protect from Melee (Level 43). |
+| `[PROTECT\_FROM\_MISSILES](#PROTECT_FROM_MISSILES)` | Protect from Missiles (Level 40). |
+| `[PROTECT\_ITEM](#PROTECT_ITEM)` | Protect Item (Level 25). |
+| `[RAPID\_HEAL](#RAPID_HEAL)` | Rapid Heal (Level 22, Hitpoints). |
+| `[RAPID\_RESTORE](#RAPID_RESTORE)` | Rapid Restore (Level 19, Stats). |
+| `[REDEMPTION](#REDEMPTION)` | Redemption (Level 49). |
+| `[RETRIBUTION](#RETRIBUTION)` | Retribution (Level 46). |
+| `[RIGOUR](#RIGOUR)` | Rigour (Level 74, Ranging/Damage/Defence). |
+| `[ROCK\_SKIN](#ROCK_SKIN)` | Rock Skin (Level 10, Defence). |
+| `[RP\_ANCIENT\_SIGHT](#RP_ANCIENT_SIGHT)` | Ruinous Powers Ancient Sight (Level 62). |
+| `[RP\_ANCIENT\_STRENGTH](#RP_ANCIENT_STRENGTH)` | Ruinous Powers Ancient Strength (Level 61). |
+| `[RP\_ANCIENT\_WILL](#RP_ANCIENT_WILL)` | Ruinous Powers Ancient Will (Level 63). |
+| `[RP\_ANNIHILATE](#RP_ANNIHILATE)` | Ruinous Powers Annihilate (Level 84). |
+| `[RP\_BERSERKER](#RP_BERSERKER)` | Ruinous Powers Berserker (Level 74). |
+| `[RP\_CRUORS\_VOW](#RP_CRUORS_VOW)` | Ruinous Powers Cruor's Vow (Level 89). |
+| `[RP\_DAMPEN\_MAGIC](#RP_DAMPEN_MAGIC)` | Ruinous Powers Dampen Magic (Level 67). |
+| `[RP\_DAMPEN\_MELEE](#RP_DAMPEN_MELEE)` | Ruinous Powers Dampen Melee (Level 71). |
+| `[RP\_DAMPEN\_RANGED](#RP_DAMPEN_RANGED)` | Ruinous Powers Dampen Ranged (Level 69). |
+| `[RP\_DECIMATE](#RP_DECIMATE)` | Ruinous Powers Decimate (Level 82). |
+| `[RP\_FUMUS\_VOW](#RP_FUMUS_VOW)` | Ruinous Powers Fumus' Vow (Level 87). |
+| `[RP\_GLACIES\_VOW](#RP_GLACIES_VOW)` | Ruinous Powers Glacies' Vow (Level 90). |
+| `[RP\_INTENSIFY](#RP_INTENSIFY)` | Ruinous Powers Intensify (Level 92). |
+| `[RP\_METABOLISE](#RP_METABOLISE)` | Ruinous Powers Metabolise (Level 77). |
+| `[RP\_PROTECT\_ITEM](#RP_PROTECT_ITEM)` | Ruinous Powers Protect Item (Level 65). |
+| `[RP\_PURGE](#RP_PURGE)` | Ruinous Powers Purge (Level 75). |
+| `[RP\_REBUKE](#RP_REBUKE)` | Ruinous Powers Rebuke (Level 78). |
+| `[RP\_REJUVENATION](#RP_REJUVENATION)` | Ruinous Powers Rejuvenation (Level 60). |
+| `[RP\_RUINOUS\_GRACE](#RP_RUINOUS_GRACE)` | Ruinous Powers Ruinous Grace (Level 66). |
+| `[RP\_TRINITAS](#RP_TRINITAS)` | Ruinous Powers Trinitas (Level 72). |
+| `[RP\_UMBRA\_VOW](#RP_UMBRA_VOW)` | Ruinous Powers Umbra's Vow (Level 88). |
+| `[RP\_VAPORISE](#RP_VAPORISE)` | Ruinous Powers Vaporise (Level 86). |
+| `[RP\_VINDICATION](#RP_VINDICATION)` | Ruinous Powers Vindication (Level 80). |
+| `[RP\_WRATH](#RP_WRATH)` | Ruinous Powers Wrath (Level 91). |
+| `[SHARP\_EYE](#SHARP_EYE)` | Sharp Eye (Level 8, Ranging). |
+| `[SMITE](#SMITE)` | Smite (Level 52). |
+| `[STEEL\_SKIN](#STEEL_SKIN)` | Steel Skin (Level 28, Defence). |
+| `[SUPERHUMAN\_STRENGTH](#SUPERHUMAN_STRENGTH)` | Superhuman Strength (Level 13, Strength). |
+| `[THICK\_SKIN](#THICK_SKIN)` | Thick Skin (Level 1, Defence). |
+| `[ULTIMATE\_STRENGTH](#ULTIMATE_STRENGTH)` | Ultimate Strength (Level 31, Strength). |
 
 + ### Method Summary
 
 All Methods [Static Methods](javascript:show(1);) [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `boolean` | `[disable](#disable())()` | Attempts to disable this prayer |
-| `static boolean` | `[disableAll](#disableAll(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Attempts to disable the specified prayers |
-| `static boolean` | `[disableQuickPrayer](#disableQuickPrayer())()` | Attmpts to disable quick prayer |
-| `boolean` | `[enable](#enable())()` | Attempts to enable this prayer |
-| `static boolean` | `[enableAll](#enableAll(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Attempts to enable the specified prayers |
-| `static boolean` | `[enableQuickPrayer](#enableQuickPrayer())()` | Attempts to enable quick prayer |
-| `boolean` | `[flick](#flick(int))​(int delayMs)` | Attempts to flick this prayer, leaving it active for the specified delay in milliseconds |
-| `static java.util.List<[Prayer](Prayer.html "enum in org.tribot.script.sdk")>` | `[getActivePrayers](#getActivePrayers())()` | Gets all active prayers |
-| `java.lang.String` | `[getName](#getName())()` | Gets the prayer name |
-| `static int` | `[getPrayerPoints](#getPrayerPoints())()` | Gets the current amount of prayer points |
-| `int` | `[getRequiredLevel](#getRequiredLevel())()` | Gets the required prayer level for this prayer |
-| `static java.util.List<[Prayer](Prayer.html "enum in org.tribot.script.sdk")>` | `[getSelectedQuickPrayers](#getSelectedQuickPrayers())()` | Gets the prayers that will be enabled when quick prayer is enabled |
-| `static boolean` | `[isAllDisabled](#isAllDisabled(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Checks if all the specified prayers are disabled |
-| `static boolean` | `[isAllEnabled](#isAllEnabled(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Checks if all the specified prayers are enabled |
-| `boolean` | `[isEnabled](#isEnabled())()` | Checks if the prayer is currently enabled |
-| `static boolean` | `[isQuickPrayerEnabled](#isQuickPrayerEnabled())()` | Checks if quick prayer is currently enabled |
-| `boolean` | `[isQuickPrayerSet](#isQuickPrayerSet())()` | Checks if this prayer is set as a prayer that will be activated when quick prayer is activated |
-| `static boolean` | `[isQuickPrayersSelected](#isQuickPrayersSelected(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Gets whether or not all of the passed prayers are currently selected as quick prayers |
-| `boolean` | `[isUnlocked](#isUnlocked())()` | Checks if this prayer is unlocked (ex. |
-| `static boolean` | `[selectQuickPrayers](#selectQuickPrayers(org.tribot.script.sdk.Prayer...))​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)` | Attempts to set the specified quick prayers as prayers that will be active when quick prayer is enabled |
-| `static [Prayer](Prayer.html "enum in org.tribot.script.sdk")` | `[valueOf](#valueOf(java.lang.String))​(java.lang.String name)` | Returns the enum constant of this type with the specified name. |
-| `static [Prayer](Prayer.html "enum in org.tribot.script.sdk")[]` | `[values](#values())()` | Returns an array containing the constants of this enum type, in
+| `int` | `[getVarbit](#getVarbit())()` | Gets the varbit that stores whether the prayer is active or not. |
+| `static [Prayer](Prayer.html "enum in net.runelite.api")` | `[valueOf](#valueOf(java.lang.String))​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") name)` | Returns the enum constant of this type with the specified name. |
+| `static [Prayer](Prayer.html "enum in net.runelite.api")[]` | `[values](#values())()` | Returns an array containing the constants of this enum type, in
 the order they are declared. |
 
-- ### Methods inherited from class java.lang.Enum
+- ### Methods inherited from class java.lang.[Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")
 
-`clone, compareTo, equals, finalize, getDeclaringClass, hashCode, name, ordinal, toString, valueOf`
-- ### Methods inherited from class java.lang.Object
+`[clone](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#clone() "class or interface in java.lang"), [compareTo](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#compareTo(E) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#equals(java.lang.Object) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#finalize() "class or interface in java.lang"), [getDeclaringClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#getDeclaringClass() "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#hashCode() "class or interface in java.lang"), [name](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#name() "class or interface in java.lang"), [ordinal](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#ordinal() "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#toString() "class or interface in java.lang"), [valueOf](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#valueOf(java.lang.Class,java.lang.String) "class or interface in java.lang")`
+- ### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 
-`getClass, notify, notifyAll, wait, wait, wait`
+`[getClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#getClass() "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notify() "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notifyAll() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long,int) "class or interface in java.lang")`
 
 * + ### Enum Constant Detail
 
 - #### THICK\_SKIN
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") THICK_SKIN
+public static final [Prayer](Prayer.html "enum in net.runelite.api") THICK_SKIN
 ```
+
+Thick Skin (Level 1, Defence).
 - #### BURST\_OF\_STRENGTH
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") BURST_OF_STRENGTH
+public static final [Prayer](Prayer.html "enum in net.runelite.api") BURST_OF_STRENGTH
 ```
+
+Burst of Strength (Level 4, Strength).
 - #### CLARITY\_OF\_THOUGHT
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") CLARITY_OF_THOUGHT
+public static final [Prayer](Prayer.html "enum in net.runelite.api") CLARITY_OF_THOUGHT
 ```
+
+Clarity of Thought (Level 7, Attack).
 - #### SHARP\_EYE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") SHARP_EYE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") SHARP_EYE
 ```
+
+Sharp Eye (Level 8, Ranging).
 - #### MYSTIC\_WILL
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") MYSTIC_WILL
+public static final [Prayer](Prayer.html "enum in net.runelite.api") MYSTIC_WILL
 ```
+
+Mystic Will (Level 9, Magic).
 - #### ROCK\_SKIN
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") ROCK_SKIN
+public static final [Prayer](Prayer.html "enum in net.runelite.api") ROCK_SKIN
 ```
+
+Rock Skin (Level 10, Defence).
 - #### SUPERHUMAN\_STRENGTH
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") SUPERHUMAN_STRENGTH
+public static final [Prayer](Prayer.html "enum in net.runelite.api") SUPERHUMAN_STRENGTH
 ```
+
+Superhuman Strength (Level 13, Strength).
 - #### IMPROVED\_REFLEXES
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") IMPROVED_REFLEXES
+public static final [Prayer](Prayer.html "enum in net.runelite.api") IMPROVED_REFLEXES
 ```
+
+Improved Reflexes (Level 16, Attack).
 - #### RAPID\_RESTORE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") RAPID_RESTORE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RAPID_RESTORE
 ```
+
+Rapid Restore (Level 19, Stats).
 - #### RAPID\_HEAL
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") RAPID_HEAL
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RAPID_HEAL
 ```
-- #### PROTECT\_ITEMS
+
+Rapid Heal (Level 22, Hitpoints).
+- #### PROTECT\_ITEM
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PROTECT_ITEMS
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PROTECT_ITEM
 ```
+
+Protect Item (Level 25).
 - #### HAWK\_EYE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") HAWK_EYE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") HAWK_EYE
 ```
+
+Hawk Eye (Level 26, Ranging).
 - #### MYSTIC\_LORE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") MYSTIC_LORE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") MYSTIC_LORE
 ```
+
+Mystic Lore (Level 27, Magic).
 - #### STEEL\_SKIN
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") STEEL_SKIN
+public static final [Prayer](Prayer.html "enum in net.runelite.api") STEEL_SKIN
 ```
+
+Steel Skin (Level 28, Defence).
 - #### ULTIMATE\_STRENGTH
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") ULTIMATE_STRENGTH
+public static final [Prayer](Prayer.html "enum in net.runelite.api") ULTIMATE_STRENGTH
 ```
+
+Ultimate Strength (Level 31, Strength).
 - #### INCREDIBLE\_REFLEXES
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") INCREDIBLE_REFLEXES
+public static final [Prayer](Prayer.html "enum in net.runelite.api") INCREDIBLE_REFLEXES
 ```
+
+Incredible Reflexes (Level 34, Attack).
 - #### PROTECT\_FROM\_MAGIC
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PROTECT_FROM_MAGIC
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PROTECT_FROM_MAGIC
 ```
+
+Protect from Magic (Level 37).
 - #### PROTECT\_FROM\_MISSILES
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PROTECT_FROM_MISSILES
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PROTECT_FROM_MISSILES
 ```
+
+Protect from Missiles (Level 40).
 - #### PROTECT\_FROM\_MELEE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PROTECT_FROM_MELEE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PROTECT_FROM_MELEE
 ```
+
+Protect from Melee (Level 43).
 - #### EAGLE\_EYE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") EAGLE_EYE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") EAGLE_EYE
 ```
+
+Eagle Eye (Level 44, Ranging).
 - #### MYSTIC\_MIGHT
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") MYSTIC_MIGHT
+public static final [Prayer](Prayer.html "enum in net.runelite.api") MYSTIC_MIGHT
 ```
+
+Mystic Might (Level 45, Magic).
 - #### RETRIBUTION
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") RETRIBUTION
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RETRIBUTION
 ```
+
+Retribution (Level 46).
 - #### REDEMPTION
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") REDEMPTION
+public static final [Prayer](Prayer.html "enum in net.runelite.api") REDEMPTION
 ```
+
+Redemption (Level 49).
 - #### SMITE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") SMITE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") SMITE
 ```
-- #### PRESERVE
 
-```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PRESERVE
-```
+Smite (Level 52).
 - #### CHIVALRY
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") CHIVALRY
+public static final [Prayer](Prayer.html "enum in net.runelite.api") CHIVALRY
 ```
-- #### PIETY
 
-```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") PIETY
-```
-- #### RIGOUR
-
-```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") RIGOUR
-```
-- #### AUGURY
-
-```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") AUGURY
-```
-- #### MYSTIC\_VIGOUR
-
-```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") MYSTIC_VIGOUR
-```
+Chivalry (Level 60, Defence/Strength/Attack).
 - #### DEADEYE
 
 ```
-public static final [Prayer](Prayer.html "enum in org.tribot.script.sdk") DEADEYE
+public static final [Prayer](Prayer.html "enum in net.runelite.api") DEADEYE
 ```
+
+Deadeye (Level 62, Ranging/Damage/Defence).
+- #### MYSTIC\_VIGOUR
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") MYSTIC_VIGOUR
+```
+
+Mystic Vigour (Level 63, Magic/Magic Def./Defence).
+- #### PIETY
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PIETY
+```
+
+Piety (Level 70, Defence/Strength/Attack).
+- #### PRESERVE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") PRESERVE
+```
+
+Preserve (Level 55).
+- #### RIGOUR
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RIGOUR
+```
+
+Rigour (Level 74, Ranging/Damage/Defence).
+- #### AUGURY
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") AUGURY
+```
+
+Augury (Level 77, Magic/Magic Def./Defence).
+- #### RP\_REJUVENATION
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_REJUVENATION
+```
+
+Ruinous Powers Rejuvenation (Level 60).
+- #### RP\_ANCIENT\_STRENGTH
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_ANCIENT_STRENGTH
+```
+
+Ruinous Powers Ancient Strength (Level 61).
+- #### RP\_ANCIENT\_SIGHT
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_ANCIENT_SIGHT
+```
+
+Ruinous Powers Ancient Sight (Level 62).
+- #### RP\_ANCIENT\_WILL
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_ANCIENT_WILL
+```
+
+Ruinous Powers Ancient Will (Level 63).
+- #### RP\_PROTECT\_ITEM
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_PROTECT_ITEM
+```
+
+Ruinous Powers Protect Item (Level 65).
+- #### RP\_RUINOUS\_GRACE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_RUINOUS_GRACE
+```
+
+Ruinous Powers Ruinous Grace (Level 66).
+- #### RP\_DAMPEN\_MAGIC
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_DAMPEN_MAGIC
+```
+
+Ruinous Powers Dampen Magic (Level 67).
+- #### RP\_DAMPEN\_RANGED
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_DAMPEN_RANGED
+```
+
+Ruinous Powers Dampen Ranged (Level 69).
+- #### RP\_DAMPEN\_MELEE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_DAMPEN_MELEE
+```
+
+Ruinous Powers Dampen Melee (Level 71).
+- #### RP\_TRINITAS
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_TRINITAS
+```
+
+Ruinous Powers Trinitas (Level 72).
+- #### RP\_BERSERKER
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_BERSERKER
+```
+
+Ruinous Powers Berserker (Level 74).
+- #### RP\_PURGE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_PURGE
+```
+
+Ruinous Powers Purge (Level 75).
+- #### RP\_METABOLISE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_METABOLISE
+```
+
+Ruinous Powers Metabolise (Level 77).
+- #### RP\_REBUKE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_REBUKE
+```
+
+Ruinous Powers Rebuke (Level 78).
+- #### RP\_VINDICATION
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_VINDICATION
+```
+
+Ruinous Powers Vindication (Level 80).
+- #### RP\_DECIMATE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_DECIMATE
+```
+
+Ruinous Powers Decimate (Level 82).
+- #### RP\_ANNIHILATE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_ANNIHILATE
+```
+
+Ruinous Powers Annihilate (Level 84).
+- #### RP\_VAPORISE
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_VAPORISE
+```
+
+Ruinous Powers Vaporise (Level 86).
+- #### RP\_FUMUS\_VOW
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_FUMUS_VOW
+```
+
+Ruinous Powers Fumus' Vow (Level 87).
+- #### RP\_UMBRA\_VOW
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_UMBRA_VOW
+```
+
+Ruinous Powers Umbra's Vow (Level 88).
+- #### RP\_CRUORS\_VOW
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_CRUORS_VOW
+```
+
+Ruinous Powers Cruor's Vow (Level 89).
+- #### RP\_GLACIES\_VOW
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_GLACIES_VOW
+```
+
+Ruinous Powers Glacies' Vow (Level 90).
+- #### RP\_WRATH
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_WRATH
+```
+
+Ruinous Powers Wrath (Level 91).
+- #### RP\_INTENSIFY
+
+```
+public static final [Prayer](Prayer.html "enum in net.runelite.api") RP_INTENSIFY
+```
+
+Ruinous Powers Intensify (Level 92).
 
 + ### Method Detail
 
 - #### values
 
 ```
-public static [Prayer](Prayer.html "enum in org.tribot.script.sdk")[] values()
+public static [Prayer](Prayer.html "enum in net.runelite.api")[] values()
 ```
 
 Returns an array containing the constants of this enum type, in
@@ -273,7 +508,7 @@ an array containing the constants of this enum type, in the order they are decla
 - #### valueOf
 
 ```
-public static [Prayer](Prayer.html "enum in org.tribot.script.sdk") valueOf​(java.lang.String name)
+public static [Prayer](Prayer.html "enum in net.runelite.api") valueOf​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") name)
 ```
 
 Returns the enum constant of this type with the specified name.
@@ -286,220 +521,16 @@ Parameters:
 Returns:
 the enum constant with the specified name
 Throws:
-`java.lang.IllegalArgumentException` - if this enum type has no constant with the specified name
-`java.lang.NullPointerException` - if the argument is null
-- #### getName
+`[IllegalArgumentException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/IllegalArgumentException.html?is-external=true "class or interface in java.lang")` - if this enum type has no constant with the specified name
+`[NullPointerException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html?is-external=true "class or interface in java.lang")` - if the argument is null
+- #### getVarbit
 
 ```
-public java.lang.String getName()
+[@Varbit](annotations/Varbit.html "annotation in net.runelite.api.annotations")
+public int getVarbit()
 ```
 
-Gets the prayer name
+Gets the varbit that stores whether the prayer is active or not.
 
 Returns:
-the prayer name
-- #### isEnabled
-
-```
-public boolean isEnabled()
-```
-
-Checks if the prayer is currently enabled
-
-Returns:
-true if currently enabled, false otherwise
-- #### isQuickPrayerSet
-
-```
-public boolean isQuickPrayerSet()
-```
-
-Checks if this prayer is set as a prayer that will be activated when quick prayer is activated
-
-Returns:
-true if this prayer is set as a quick prayer, false otherwise
-- #### enable
-
-```
-public boolean enable()
-```
-
-Attempts to enable this prayer
-
-Returns:
-true if enabled successfully, false otherwise
-- #### disable
-
-```
-public boolean disable()
-```
-
-Attempts to disable this prayer
-
-Returns:
-true if disabled succesfully, false otherwise
-- #### getRequiredLevel
-
-```
-public int getRequiredLevel()
-```
-
-Gets the required prayer level for this prayer
-
-Returns:
-the required prayer level for this prayer
-- #### flick
-
-```
-public boolean flick​(int delayMs)
-```
-
-Attempts to flick this prayer, leaving it active for the specified delay in milliseconds
-
-Parameters:
-`delayMs` - the delay in milliseconds
-Returns:
-true if flicked successfully, false otherwise
-- #### isUnlocked
-
-```
-public boolean isUnlocked()
-```
-
-Checks if this prayer is unlocked (ex. [`RIGOUR`](#RIGOUR) requires activating some scroll ingame).
-If the prayer doesn't require anything specific to unlock it then it will always be unlocked.
-
-Returns:
-true if this prayer is unlocked, false otherwise
-- #### isAllEnabled
-
-```
-public static boolean isAllEnabled​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Checks if all the specified prayers are enabled
-
-Parameters:
-`prayers` - the specified prayers
-Returns:
-true if all the specified prayers are enabled, false otherwise
-- #### isAllDisabled
-
-```
-public static boolean isAllDisabled​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Checks if all the specified prayers are disabled
-
-Parameters:
-`prayers` - the specified prayers
-Returns:
-true if all the specified prayers are dsiabled, false otherwise
-- #### enableAll
-
-```
-public static boolean enableAll​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Attempts to enable the specified prayers
-
-Parameters:
-`prayers` - the prayers to enable
-Returns:
-true if all prayers were enabled, false otherwise
-- #### disableAll
-
-```
-public static boolean disableAll​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Attempts to disable the specified prayers
-
-Parameters:
-`prayers` - the prayers to disable
-Returns:
-true if all prayers were disabled, false otherwise
-- #### getPrayerPoints
-
-```
-public static int getPrayerPoints()
-```
-
-Gets the current amount of prayer points
-
-Returns:
-the current prayer points available
-- #### getActivePrayers
-
-```
-public static java.util.List<[Prayer](Prayer.html "enum in org.tribot.script.sdk")> getActivePrayers()
-```
-
-Gets all active prayers
-
-Returns:
-the active prayers
-- #### getSelectedQuickPrayers
-
-```
-public static java.util.List<[Prayer](Prayer.html "enum in org.tribot.script.sdk")> getSelectedQuickPrayers()
-```
-
-Gets the prayers that will be enabled when quick prayer is enabled
-
-Returns:
-the prayers that are set as quick prayers
-- #### isQuickPrayerEnabled
-
-```
-public static boolean isQuickPrayerEnabled()
-```
-
-Checks if quick prayer is currently enabled
-
-Returns:
-true if quick prayer is enabled, false otherwise
-- #### enableQuickPrayer
-
-```
-public static boolean enableQuickPrayer()
-```
-
-Attempts to enable quick prayer
-
-Returns:
-true if successful, false otherwise
-- #### selectQuickPrayers
-
-```
-public static boolean selectQuickPrayers​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Attempts to set the specified quick prayers as prayers that will be active when quick prayer is enabled
-
-Parameters:
-`prayers` - the prayers to set
-Returns:
-true if successful, false otherwise
-- #### disableQuickPrayer
-
-```
-public static boolean disableQuickPrayer()
-```
-
-Attmpts to disable quick prayer
-
-Returns:
-true if successful, false otherwise
-- #### isQuickPrayersSelected
-
-```
-public static boolean isQuickPrayersSelected​([Prayer](Prayer.html "enum in org.tribot.script.sdk")... prayers)
-```
-
-Gets whether or not all of the passed prayers are currently selected as quick prayers
-
-Parameters:
-`prayers` - The prayers to check
-Returns:
-True if all the prayers are selected as quick prayers, false otherwise.
+the prayer active varbit

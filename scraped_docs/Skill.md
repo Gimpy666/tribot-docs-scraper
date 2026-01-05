@@ -1,26 +1,26 @@
-# Skill (tribot-script-sdk 1.0.70 API)
+# Skill (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Skill.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Skill.html
 
-**Package:** Packageorg.tribot.script.sdk
+**Package:** Packagenet.runelite.api
 
 ---
 
-* java.lang.Object
-* + java.lang.Enum<[Skill](Skill.html "enum in org.tribot.script.sdk")>
-+ - org.tribot.script.sdk.Skill
+* [java.lang.Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
+* + [java.lang.Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")<[Skill](Skill.html "enum in net.runelite.api")>
++ - net.runelite.api.Skill
 
 * All Implemented Interfaces:
-`java.io.Serializable`, `java.lang.Comparable<[Skill](Skill.html "enum in org.tribot.script.sdk")>`
+`[Serializable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true "class or interface in java.io")`, `[Comparable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html?is-external=true "class or interface in java.lang")<[Skill](Skill.html "enum in net.runelite.api")>`
 
 ---
 
 ```
 public enum Skill
-extends java.lang.Enum<[Skill](Skill.html "enum in org.tribot.script.sdk")>
+extends [Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")<[Skill](Skill.html "enum in net.runelite.api")>
 ```
 
-A skill listed in the skills tab
+An enumeration of skills that a player can level.
 
 * + ### Enum Constant Summary
 
@@ -43,158 +43,173 @@ Enum Constants | Enum Constant | Description |
 | `[PRAYER](#PRAYER)` | |
 | `[RANGED](#RANGED)` | |
 | `[RUNECRAFT](#RUNECRAFT)` | |
+| `[SAILING](#SAILING)` | |
 | `[SLAYER](#SLAYER)` | |
 | `[SMITHING](#SMITHING)` | |
 | `[STRENGTH](#STRENGTH)` | |
 | `[THIEVING](#THIEVING)` | |
 | `[WOODCUTTING](#WOODCUTTING)` | |
 
++ ### Field Summary
+
+Fields | Modifier and Type | Field | Description |
+| `static [Skill](Skill.html "enum in net.runelite.api")` | `[OVERALL](#OVERALL)` | Deprecated. |
+
 + ### Method Summary
 
 All Methods [Static Methods](javascript:show(1);) [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `int` | `[getActualLevel](#getActualLevel())()` | Gets the actual skill level based on exp, not including boosts/stat changes |
-| `int` | `[getCurrentLevel](#getCurrentLevel())()` | Gets the current skill level, accounting for boosts/stat changes |
-| `int` | `[getCurrentXpToNextLevel](#getCurrentXpToNextLevel())()` | Gets the exp needed to reach the next level |
-| `int` | `[getTotalXpToNextLevel](#getTotalXpToNextLevel())()` | Gets the total exp to the next level (the exp for the next level - the exp for the current level) |
-| `int` | `[getXp](#getXp())()` | Gets the current exp gained in this skill |
-| `int` | `[getXpPercentToNextLevel](#getXpPercentToNextLevel())()` | Gets the percent until the next level |
-| `boolean` | `[hover](#hover())()` | Hovers the skill in the skills tab |
-| `boolean` | `[isMembersOnly](#isMembersOnly())()` | |
-| `static [Skill](Skill.html "enum in org.tribot.script.sdk")` | `[valueOf](#valueOf(java.lang.String))​(java.lang.String name)` | Returns the enum constant of this type with the specified name. |
-| `static [Skill](Skill.html "enum in org.tribot.script.sdk")[]` | `[values](#values())()` | Returns an array containing the constants of this enum type, in
+| `[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang")` | `[getName](#getName())()` | Gets the name of the skill. |
+| `static [Skill](Skill.html "enum in net.runelite.api")` | `[valueOf](#valueOf(java.lang.String))​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") name)` | Returns the enum constant of this type with the specified name. |
+| `static [Skill](Skill.html "enum in net.runelite.api")[]` | `[values](#values())()` | Returns an array containing the constants of this enum type, in
 the order they are declared. |
 
-- ### Methods inherited from class java.lang.Enum
+- ### Methods inherited from class java.lang.[Enum](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true "class or interface in java.lang")
 
-`clone, compareTo, equals, finalize, getDeclaringClass, hashCode, name, ordinal, toString, valueOf`
-- ### Methods inherited from class java.lang.Object
+`[clone](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#clone() "class or interface in java.lang"), [compareTo](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#compareTo(E) "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#equals(java.lang.Object) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#finalize() "class or interface in java.lang"), [getDeclaringClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#getDeclaringClass() "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#hashCode() "class or interface in java.lang"), [name](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#name() "class or interface in java.lang"), [ordinal](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#ordinal() "class or interface in java.lang"), [toString](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#toString() "class or interface in java.lang"), [valueOf](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Enum.html?is-external=true#valueOf(java.lang.Class,java.lang.String) "class or interface in java.lang")`
+- ### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 
-`getClass, notify, notifyAll, wait, wait, wait`
+`[getClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#getClass() "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notify() "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notifyAll() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long,int) "class or interface in java.lang")`
 
 * + ### Enum Constant Detail
 
 - #### ATTACK
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") ATTACK
-```
-- #### STRENGTH
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") STRENGTH
+public static final [Skill](Skill.html "enum in net.runelite.api") ATTACK
 ```
 - #### DEFENCE
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") DEFENCE
+public static final [Skill](Skill.html "enum in net.runelite.api") DEFENCE
 ```
-- #### RANGED
+- #### STRENGTH
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") RANGED
-```
-- #### PRAYER
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") PRAYER
-```
-- #### MAGIC
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") MAGIC
-```
-- #### RUNECRAFT
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") RUNECRAFT
-```
-- #### CONSTRUCTION
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") CONSTRUCTION
+public static final [Skill](Skill.html "enum in net.runelite.api") STRENGTH
 ```
 - #### HITPOINTS
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") HITPOINTS
+public static final [Skill](Skill.html "enum in net.runelite.api") HITPOINTS
 ```
-- #### AGILITY
+- #### RANGED
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") AGILITY
+public static final [Skill](Skill.html "enum in net.runelite.api") RANGED
 ```
-- #### HERBLORE
+- #### PRAYER
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") HERBLORE
+public static final [Skill](Skill.html "enum in net.runelite.api") PRAYER
 ```
-- #### THIEVING
+- #### MAGIC
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") THIEVING
-```
-- #### CRAFTING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") CRAFTING
-```
-- #### FLETCHING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") FLETCHING
-```
-- #### SLAYER
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") SLAYER
-```
-- #### HUNTER
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") HUNTER
-```
-- #### MINING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") MINING
-```
-- #### SMITHING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") SMITHING
-```
-- #### FISHING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") FISHING
+public static final [Skill](Skill.html "enum in net.runelite.api") MAGIC
 ```
 - #### COOKING
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") COOKING
-```
-- #### FIREMAKING
-
-```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") FIREMAKING
+public static final [Skill](Skill.html "enum in net.runelite.api") COOKING
 ```
 - #### WOODCUTTING
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") WOODCUTTING
+public static final [Skill](Skill.html "enum in net.runelite.api") WOODCUTTING
+```
+- #### FLETCHING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") FLETCHING
+```
+- #### FISHING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") FISHING
+```
+- #### FIREMAKING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") FIREMAKING
+```
+- #### CRAFTING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") CRAFTING
+```
+- #### SMITHING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") SMITHING
+```
+- #### MINING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") MINING
+```
+- #### HERBLORE
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") HERBLORE
+```
+- #### AGILITY
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") AGILITY
+```
+- #### THIEVING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") THIEVING
+```
+- #### SLAYER
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") SLAYER
 ```
 - #### FARMING
 
 ```
-public static final [Skill](Skill.html "enum in org.tribot.script.sdk") FARMING
+public static final [Skill](Skill.html "enum in net.runelite.api") FARMING
 ```
+- #### RUNECRAFT
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") RUNECRAFT
+```
+- #### HUNTER
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") HUNTER
+```
+- #### CONSTRUCTION
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") CONSTRUCTION
+```
+- #### SAILING
+
+```
+public static final [Skill](Skill.html "enum in net.runelite.api") SAILING
+```
+
++ ### Field Detail
+
+- #### OVERALL
+
+```
+[@Deprecated](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Deprecated.html?is-external=true "class or interface in java.lang")
+public static final [Skill](Skill.html "enum in net.runelite.api") OVERALL
+```
+
+Deprecated.
 
 + ### Method Detail
 
 - #### values
 
 ```
-public static [Skill](Skill.html "enum in org.tribot.script.sdk")[] values()
+public static [Skill](Skill.html "enum in net.runelite.api")[] values()
 ```
 
 Returns an array containing the constants of this enum type, in
@@ -213,7 +228,7 @@ an array containing the constants of this enum type, in the order they are decla
 - #### valueOf
 
 ```
-public static [Skill](Skill.html "enum in org.tribot.script.sdk") valueOf​(java.lang.String name)
+public static [Skill](Skill.html "enum in net.runelite.api") valueOf​([String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") name)
 ```
 
 Returns the enum constant of this type with the specified name.
@@ -226,80 +241,15 @@ Parameters:
 Returns:
 the enum constant with the specified name
 Throws:
-`java.lang.IllegalArgumentException` - if this enum type has no constant with the specified name
-`java.lang.NullPointerException` - if the argument is null
-- #### isMembersOnly
+`[IllegalArgumentException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/IllegalArgumentException.html?is-external=true "class or interface in java.lang")` - if this enum type has no constant with the specified name
+`[NullPointerException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html?is-external=true "class or interface in java.lang")` - if the argument is null
+- #### getName
 
 ```
-public boolean isMembersOnly()
-```
-- #### getXp
-
-```
-public int getXp()
+public [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") getName()
 ```
 
-Gets the current exp gained in this skill
+Gets the name of the skill.
 
 Returns:
-the current exp
-- #### getCurrentXpToNextLevel
-
-```
-public int getCurrentXpToNextLevel()
-```
-
-Gets the exp needed to reach the next level
-
-Returns:
-the exp needed to reach the next level
-- #### getXpPercentToNextLevel
-
-```
-public int getXpPercentToNextLevel()
-```
-
-Gets the percent until the next level
-
-Returns:
-the percent until the next level
-- #### getTotalXpToNextLevel
-
-```
-public int getTotalXpToNextLevel()
-```
-
-Gets the total exp to the next level (the exp for the next level - the exp for the current level)
-
-Returns:
-the total exp to the next level
-- #### getActualLevel
-
-```
-public int getActualLevel()
-```
-
-Gets the actual skill level based on exp, not including boosts/stat changes
-
-Returns:
-the actual skill level based on exp
-- #### getCurrentLevel
-
-```
-public int getCurrentLevel()
-```
-
-Gets the current skill level, accounting for boosts/stat changes
-
-Returns:
-the current skill level, accounting for boosts/stat changes
-- #### hover
-
-```
-public boolean hover()
-```
-
-Hovers the skill in the skills tab
-
-Returns:
-true if hovered successfully, false otherwise
+the skill name

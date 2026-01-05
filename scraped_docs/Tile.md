@@ -1,213 +1,209 @@
-# Tile (tribot-script-sdk 1.0.70 API)
+# Tile (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Tile.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Tile.html
 
-**Package:** Packageorg.tribot.script.sdk.interfaces
-
----
-
-* All Superinterfaces:
-`[Clickable](Clickable.html "interface in org.tribot.script.sdk.interfaces")`, `[Interactable](Interactable.html "interface in org.tribot.script.sdk.interfaces")`, `[Positionable](Positionable.html "interface in org.tribot.script.sdk.interfaces")`
-
-All Known Implementing Classes:
-`[LocalTile](../types/LocalTile.html "class in org.tribot.script.sdk.types")`, `[WorldTile](../types/WorldTile.html "class in org.tribot.script.sdk.types")`
+**Package:** Packagenet.runelite.api
 
 ---
+
+* ---
 
 ```
 public interface Tile
-extends [Interactable](Interactable.html "interface in org.tribot.script.sdk.interfaces")
 ```
 
-Represents a position in the game. Could be relative (LocalTile) or global (WorldTile).
+Represents a tile in the game.
 
 * + ### Method Summary
 
-All Methods [Instance Methods](javascript:show(2);) [Abstract Methods](javascript:show(4);) [Default Methods](javascript:show(16);) | Modifier and Type | Method | Description |
-| `boolean` | `[clickOnMinimap](#clickOnMinimap())()` | Clicks the tile on the minimap interface. |
-| `java.util.Optional<java.awt.Polygon>` | `[getBounds](#getBounds())()` | Gets the bounds of this tile on the screen |
-| `int` | `[getPlane](#getPlane())()` | Gets the plane of this tile |
-| `int` | `[getX](#getX())()` | Gets the x coordinate of this tile |
-| `int` | `[getY](#getY())()` | Gets the y coordinate of this tile |
-| `default boolean` | `[hasLineOfSightTo](#hasLineOfSightTo(org.tribot.script.sdk.interfaces.Positionable))​([Positionable](Positionable.html "interface in org.tribot.script.sdk.interfaces") other)` | Unmaintained. |
-| `boolean` | `[hoverOnMinimap](#hoverOnMinimap())()` | Attempts to hover the tile on the minimap |
-| `default boolean` | `[isHovering](#isHovering())()` | Checks if the mouse is currently over this entity |
-| `default boolean` | `[isInLineOfSight](#isInLineOfSight())()` | Unmaintained. |
-| `boolean` | `[isOnMinimap](#isOnMinimap())()` | Determines if this tile is visible on the minimap interface. |
-| `boolean` | `[isRendered](#isRendered())()` | Checks if this tile is currently being rendered (a tile is not rendered if it's covered by the 'black fog') |
-| `boolean` | `[leftClickOnScreen](#leftClickOnScreen())()` | Attempts to left-click this tile on the screen. |
-| `[Tile](Tile.html "interface in org.tribot.script.sdk.interfaces")` | `[translate](#translate(int,int))​(int x,
-int y)` | Translates (shifts) this tile by the specified x and y |
-| `[Tile](Tile.html "interface in org.tribot.script.sdk.interfaces")` | `[translate](#translate(int,int,int))​(int x,
-int y,
-int z)` | Translates (shifts) this tile by the specified x, y, and z |
-
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Clickable](Clickable.html "interface in org.tribot.script.sdk.interfaces")
-
-`[click](Clickable.html#click()), [click](Clickable.html#click(java.lang.String)), [hover](Clickable.html#hover()), [hover](Clickable.html#hover(java.lang.String)), [hoverMenu](Clickable.html#hoverMenu(java.lang.String)), [isVisible](Clickable.html#isVisible())`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Interactable](Interactable.html "interface in org.tribot.script.sdk.interfaces")
-
-`[interact](Interactable.html#interact(java.lang.String)), [interact](Interactable.html#interact(java.lang.String,java.util.function.BooleanSupplier))`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Positionable](Positionable.html "interface in org.tribot.script.sdk.interfaces")
-
-`[adjustCameraTo](Positionable.html#adjustCameraTo()), [distance](Positionable.html#distance()), [distanceTo](Positionable.html#distanceTo(org.tribot.script.sdk.interfaces.Positionable)), [getTile](Positionable.html#getTile())`
+All Methods [Instance Methods](javascript:show(2);) [Abstract Methods](javascript:show(4);) | Modifier and Type | Method | Description |
+| `[Tile](Tile.html "interface in net.runelite.api")` | `[getBridge](#getBridge())()` | Return the tile under this one, if this tile is a bridge |
+| `[DecorativeObject](DecorativeObject.html "interface in net.runelite.api")` | `[getDecorativeObject](#getDecorativeObject())()` | Gets the decoration on the tile. |
+| `[GameObject](GameObject.html "interface in net.runelite.api")[]` | `[getGameObjects](#getGameObjects())()` | Gets all game objects on the tile. |
+| `[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html?is-external=true "class or interface in java.util")<[TileItem](TileItem.html "interface in net.runelite.api")>` | `[getGroundItems](#getGroundItems())()` | Get all the ground items for this tile |
+| `[GroundObject](GroundObject.html "interface in net.runelite.api")` | `[getGroundObject](#getGroundObject())()` | Gets the object on the ground layer of the tile. |
+| `[ItemLayer](ItemLayer.html "interface in net.runelite.api")` | `[getItemLayer](#getItemLayer())()` | Gets the items held on this tile. |
+| `[LocalPoint](coords/LocalPoint.html "class in net.runelite.api.coords")` | `[getLocalLocation](#getLocalLocation())()` | Gets the local coordinate of the tile. |
+| `int` | `[getPlane](#getPlane())()` | Gets the plane that this tile is on. |
+| `int` | `[getRenderLevel](#getRenderLevel())()` | Get the plane this tile is rendered on, which is where the tile heights are from. |
+| `[Point](Point.html "class in net.runelite.api")` | `[getSceneLocation](#getSceneLocation())()` | Gets the location coordinate of the tile in scene coords |
+| `[SceneTileModel](SceneTileModel.html "interface in net.runelite.api")` | `[getSceneTileModel](#getSceneTileModel())()` | Gets the model of the tile in the scene. |
+| `[SceneTilePaint](SceneTilePaint.html "interface in net.runelite.api")` | `[getSceneTilePaint](#getSceneTilePaint())()` | Gets the scene paint of the tile. |
+| `[WallObject](WallObject.html "interface in net.runelite.api")` | `[getWallObject](#getWallObject())()` | Gets the wall of the tile. |
+| `[WorldPoint](coords/WorldPoint.html "class in net.runelite.api.coords")` | `[getWorldLocation](#getWorldLocation())()` | Gets the location coordinate of the tile in the world. |
+| `void` | `[setGroundObject](#setGroundObject(net.runelite.api.GroundObject))​([GroundObject](GroundObject.html "interface in net.runelite.api") groundObject)` | Sets the object on the ground layer of the tile. |
+| `void` | `[setSceneTileModel](#setSceneTileModel(net.runelite.api.SceneTileModel))​([SceneTileModel](SceneTileModel.html "interface in net.runelite.api") model)` | Sets the model of the tile in the scene. |
+| `void` | `[setSceneTilePaint](#setSceneTilePaint(net.runelite.api.SceneTilePaint))​([SceneTilePaint](SceneTilePaint.html "interface in net.runelite.api") paint)` | Sets the scene paint of the tile. |
 
 * + ### Method Detail
 
-- #### getX
+- #### getDecorativeObject
 
 ```
-int getX()
+[DecorativeObject](DecorativeObject.html "interface in net.runelite.api") getDecorativeObject()
 ```
 
-Gets the x coordinate of this tile
+Gets the decoration on the tile.
 
 Returns:
-the x coordinate
-- #### getY
+the tile decoration
+- #### getGameObjects
 
 ```
-int getY()
+[GameObject](GameObject.html "interface in net.runelite.api")[] getGameObjects()
 ```
 
-Gets the y coordinate of this tile
+Gets all game objects on the tile.
 
 Returns:
-the y coordinate
+the game objects
+- #### getItemLayer
+
+```
+[ItemLayer](ItemLayer.html "interface in net.runelite.api") getItemLayer()
+```
+
+Gets the items held on this tile.
+
+Returns:
+the item
+- #### getGroundObject
+
+```
+[GroundObject](GroundObject.html "interface in net.runelite.api") getGroundObject()
+```
+
+Gets the object on the ground layer of the tile.
+
+Returns:
+the ground object
+- #### setGroundObject
+
+```
+void setGroundObject​([GroundObject](GroundObject.html "interface in net.runelite.api") groundObject)
+```
+
+Sets the object on the ground layer of the tile.
+
+Parameters:
+`groundObject` - the ground object
+- #### getWallObject
+
+```
+[WallObject](WallObject.html "interface in net.runelite.api") getWallObject()
+```
+
+Gets the wall of the tile.
+
+Returns:
+the wall object
+- #### getSceneTilePaint
+
+```
+[SceneTilePaint](SceneTilePaint.html "interface in net.runelite.api") getSceneTilePaint()
+```
+
+Gets the scene paint of the tile.
+
+Returns:
+the paint
+- #### setSceneTilePaint
+
+```
+void setSceneTilePaint​([SceneTilePaint](SceneTilePaint.html "interface in net.runelite.api") paint)
+```
+
+Sets the scene paint of the tile.
+Must only be mutated during map load.
+
+Parameters:
+`paint` - the paint
+- #### getSceneTileModel
+
+```
+[SceneTileModel](SceneTileModel.html "interface in net.runelite.api") getSceneTileModel()
+```
+
+Gets the model of the tile in the scene.
+
+Returns:
+the tile model
+- #### setSceneTileModel
+
+```
+void setSceneTileModel​([SceneTileModel](SceneTileModel.html "interface in net.runelite.api") model)
+```
+
+Sets the model of the tile in the scene.
+Must only be mutated during map load.
+
+Parameters:
+`model` - the tile model
+- #### getWorldLocation
+
+```
+[WorldPoint](coords/WorldPoint.html "class in net.runelite.api.coords") getWorldLocation()
+```
+
+Gets the location coordinate of the tile in the world.
+
+Returns:
+the world location
+- #### getSceneLocation
+
+```
+[Point](Point.html "class in net.runelite.api") getSceneLocation()
+```
+
+Gets the location coordinate of the tile in scene coords
+
+Returns:
+the scene location
+- #### getLocalLocation
+
+```
+[LocalPoint](coords/LocalPoint.html "class in net.runelite.api.coords") getLocalLocation()
+```
+
+Gets the local coordinate of the tile.
+
+Returns:
+the local location
 - #### getPlane
 
 ```
 int getPlane()
 ```
 
-Gets the plane of this tile
+Gets the plane that this tile is on.
 
 Returns:
-the plane of this tile
-- #### isOnMinimap
+the plane
+- #### getRenderLevel
 
 ```
-boolean isOnMinimap()
+int getRenderLevel()
 ```
 
-Determines if this tile is visible on the minimap interface.
+Get the plane this tile is rendered on, which is where the tile heights are from.
 
 Returns:
-True if the tile is on the minimap. False otherwise.
-- #### clickOnMinimap
+- #### getGroundItems
 
 ```
-boolean clickOnMinimap()
+[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html?is-external=true "class or interface in java.util")<[TileItem](TileItem.html "interface in net.runelite.api")> getGroundItems()
 ```
 
-Clicks the tile on the minimap interface.
+Get all the ground items for this tile
 
 Returns:
-True if the click happens. False otherwise.
-- #### hoverOnMinimap
+the ground items
+- #### getBridge
 
 ```
-boolean hoverOnMinimap()
+[Tile](Tile.html "interface in net.runelite.api") getBridge()
 ```
 
-Attempts to hover the tile on the minimap
+Return the tile under this one, if this tile is a bridge
 
 Returns:
-true if the tile was hovered, false otherwise
-- #### translate
-
-```
-[Tile](Tile.html "interface in org.tribot.script.sdk.interfaces") translate​(int x,
-int y)
-```
-
-Translates (shifts) this tile by the specified x and y
-
-Parameters:
-`x` - the x translation
-`y` - the y translation
-Returns:
-a new tile with the specified translation
-- #### translate
-
-```
-[Tile](Tile.html "interface in org.tribot.script.sdk.interfaces") translate​(int x,
-int y,
-int z)
-```
-
-Translates (shifts) this tile by the specified x, y, and z
-
-Parameters:
-`x` - the x translation
-`y` - the y translation
-`z` - the z translation (plane)
-Returns:
-a new tile with the specified translation
-- #### isRendered
-
-```
-boolean isRendered()
-```
-
-Checks if this tile is currently being rendered (a tile is not rendered if it's covered by the 'black fog')
-
-Returns:
-true if this tile is being rendered, false otherwise
-- #### leftClickOnScreen
-
-```
-boolean leftClickOnScreen()
-```
-
-Attempts to left-click this tile on the screen. This will only left click.
-It can fail in some cases if it can't find a spot to left-click.
-
-Returns:
-true if the tile was clicked, false otherwise
-- #### getBounds
-
-```
-java.util.Optional<java.awt.Polygon> getBounds()
-```
-
-Gets the bounds of this tile on the screen
-
-Returns:
-the bounds of this tile on the screen
-- #### isInLineOfSight
-
-```
-default boolean isInLineOfSight()
-```
-
-Unmaintained. Checks if this tile is in the line of sight of the local player.
-Line of sight means that you can attack a target on this tile without moving (dependent on weapon range) around some obstacle.
-
-Returns:
-true if this tile is in the line of sight of the local player, false otherwise
-- #### hasLineOfSightTo
-
-```
-default boolean hasLineOfSightTo​([Positionable](Positionable.html "interface in org.tribot.script.sdk.interfaces") other)
-```
-
-Unmaintained. Checks if this tile has line of sight to the target
-
-Parameters:
-`other` - the target to check if this tile has line of sight to
-Returns:
-true if this tile has line of sight to the target, false otherwise
-- #### isHovering
-
-```
-default boolean isHovering()
-```
-
-Description copied from interface: `[Clickable](Clickable.html#isHovering())`
-Checks if the mouse is currently over this entity
-
-Specified by:
-`[isHovering](Clickable.html#isHovering())` in interface `[Clickable](Clickable.html "interface in org.tribot.script.sdk.interfaces")`
-Returns:
-true if the mouse if over this entity, false otherwise

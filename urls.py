@@ -1,237 +1,77 @@
 """
-URL list for Tribot JavaDoc scraping
+URL list for RuneLite JavaDoc scraping
 """
 
-# Test URL
-TEST_URL = "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ActionableQuery.html"
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-# Index URL
-INDEX_URL = "https://runeautomation.com/docs/sdk/javadocs/allclasses-frame.html"
+# Base URL for RuneLite API docs
+BASE_URL = "https://static.runelite.net/runelite-api/apidocs/"
 
-# All Tribot API URLs
-TRIBOT_URLS = [
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Actionable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ActionableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/Antiban.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/AntibanProperties.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/AntibanProperties.Props.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Area.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/AutomationClient.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/AutomationClient.AutomationException.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Bank.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/cache/BankCache.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/BankEquipment.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/BankPinScreen.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/BankQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/BankSettings.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/BankSettings.WithdrawQuantity.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/BasicPaintTemplate.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/BasicPaintTemplate.BasicPaintTemplateBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/BreakStartListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/BugReports.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/BugReports.WebhookConfig.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/BugReports.WebhookConfig.WebhookConfigBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Camera.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Camera.RotationMethod.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Camera.ZoomMethod.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Character.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Character.WalkingDirection.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/CharacterQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Chatbox.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Chatbox.Tab.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/ChatScreen.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/ChatScreen.Config.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/ChatScreen.Config.ConfigBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/ChooseOption.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/ClanMessageListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Clickable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ClickableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Combat.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Combat.AttackStyle.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Combat.AutocastableSpell.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Combat.WeaponType.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/adapter/DaxWalkerAdapter.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/adapter/DaxWalkerAdapter.Teleport.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/DuelRequestListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/EnterInputScreen.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Equipment.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Equipment.Slot.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/EquipmentItem.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/EquipmentQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/EventOverride.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GameListening.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GameObject.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/GameObjectQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GameState.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GameState.State.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GameTab.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GameTab.SwitchPreference.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/adapter/GlobalWalkerAdapter.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/GlobalWalking.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GrandExchange.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GrandExchange.CollectMethod.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GrandExchange.CreateOfferConfig.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/GrandExchange.CreateOfferConfig.CreateOfferConfigBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GrandExchangeOffer.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GrandExchangeOffer.Slot.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GrandExchangeOffer.Status.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GrandExchangeOffer.Type.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/GrandExchangeOfferQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GraphicObject.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/GraphicObjectQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GroundItem.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GroundItem.OwnerType.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/GroundItemQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.Activity.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.ActivityRanking.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.CategoryRanking.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.Player.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.Skill.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Hiscores.SkillRanking.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Hitsplat.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Hitsplat.Type.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Identifiable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/IdentifiableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Indexable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/IndexableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Interactable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/InteractableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Interaction.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Inventory.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Inventory.DropPattern.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/InventoryItem.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/InventoryQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Item.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/ItemDefinable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ItemDefinableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/definitions/ItemDefinition.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ItemDefinitionQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ItemQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Keyboard.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Keyboard.HoldAction.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Keyboard.HoldAction.Key.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Keyboard.HoldAction.KeyHoldContext.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/KeyEventOverrideListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/LocalTile.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/LocalTile.Collision.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/LocalTile.Direction.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/LocalTile.SceneSetting.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/LocalWalking.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/LocalWalking.Map.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/LocalWalking.Map.MapBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Log.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Login.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Login.LoginMessage.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Magic.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Magic.SpellBook.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MakeScreen.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MakeScreen.Quantity.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MakeScreen.SelectPreference.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MessageListening.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Minigame.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Model.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Modellable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Mouse.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/input/Mouse.ClickMethod.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/MouseClickListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/MouseDragListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/MouseEventOverrideListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/MouseMoveListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/MousePaint.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/MouseReleaseListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/MouseSplinePaint.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MyPlayer.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MyPlayer.AccountType.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/MyPlayer.TeleblockState.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Named.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/NamedQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/Notifications.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Npc.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/definitions/NpcDefinition.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/NpcQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/definitions/ObjectDefinition.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.AttackOption.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.ChatboxScrollPosition.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.HouseDoor.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.ResizableType.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Options.Tab.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Orientable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Orientable.Orientation.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Orientable.Orientation.Direction.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/OrientableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/PaintComponent.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/Painting.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/PaintLocation.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/PaintRow.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/PaintRows.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/PaintTextRow.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/painting/template/basic/PaintTextRow.PaintTextRowBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Player.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Player.OverheadIcon.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Player.SkullIcon.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/PlayerMessageListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/PlayerPreferences.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/PlayerPreferences.Generator.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/PlayerQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Positionable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/PositionableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Prayer.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/PreBreakStartListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/antiban/PreferredTargetSelector.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/PrivateMessageListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Projectile.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ProjectileQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/Query.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Quest.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Quest.State.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/RandomSelectors.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Region.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/Resources.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/Resources.ResourceNotFoundException.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/ResultSelector.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/Retry.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/serialization/RuntimeTypeAdapterFactory.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Screenshot.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/script/ScriptConfig.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/ScriptListening.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/script/ScriptRuntimeInfo.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/ScriptSettings.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/ScriptSettings.ScriptSettingsBuilder.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/ServerMessageListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Shop.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Shop.Quantity.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/ShopItemQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Skill.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Stackable.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/StackableItemDefinableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/StackableQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/Tile.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/TileQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/TradeQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/interfaces/TradeRequestListener.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/TradeScreen.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/TradeScreen.MyPlayer.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/TradeScreen.OtherPlayer.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/TradeScreen.Stage.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Tribot.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/util/TribotRandom.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/script/TribotScript.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/script/TribotScriptManifest.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Waiting.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/walking/WalkState.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/Widget.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/WidgetAddress.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/WidgetItem.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/WidgetItemQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/WidgetQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Widgets.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/World.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/World.Location.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/World.Type.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/WorldHopper.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/query/WorldQuery.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/Worlds.html",
-    "https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/WorldTile.html"
-]
+# Test URL - Client class
+TEST_URL = "https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Client.html"
+
+# Index URL for discovering all classes
+OVERVIEW_TREE_URL = "https://static.runelite.net/runelite-api/apidocs/overview-tree.html"
+
+
+def discover_runelite_urls():
+    """
+    Discover all RuneLite API class URLs from the overview-tree.html page.
+    
+    Returns:
+        List of URLs to RuneLite API class documentation pages
+    """
+    print("Discovering RuneLite API URLs from overview-tree.html...")
+    
+    try:
+        response = requests.get(OVERVIEW_TREE_URL, timeout=30)
+        response.raise_for_status()
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Find all links that point to class documentation
+        # Exclude navigation links, package links, and other non-class pages
+        excluded_patterns = [
+            'index', 'overview', 'deprecated', 'help-doc', 'package-',
+            'stylesheet', 'script', 'jquery', 'allclasses', 'tree'
+        ]
+        
+        urls = []
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            
+            # Skip excluded patterns
+            if any(pattern in href for pattern in excluded_patterns):
+                continue
+            
+            # Only include .html files that look like class documentation
+            # (they should have a path structure like net/runelite/api/ClassName.html)
+            if href.endswith('.html') and '/' in href and not href.startswith('http'):
+                full_url = urljoin(BASE_URL, href)
+                urls.append(full_url)
+        
+        # Remove duplicates and sort
+        urls = sorted(list(set(urls)))
+        
+        print(f"Discovered {len(urls)} RuneLite API URLs")
+        return urls
+        
+    except Exception as e:
+        print(f"Error discovering URLs: {str(e)}")
+        print("Warning: Falling back to empty list. You may need to manually populate RUNELITE_URLS.")
+        return []
+
+
+# Discover URLs automatically
+# This will be populated when the module is imported
+RUNELITE_URLS = discover_runelite_urls()
+
+# If discovery fails or returns empty, you can manually add URLs here
+# Example:
+# RUNELITE_URLS = [
+#     "https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Client.html",
+#     "https://static.runelite.net/runelite-api/apidocs/net/runelite/api/Player.html",
+#     # ... more URLs
+# ]

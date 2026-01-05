@@ -1,195 +1,132 @@
-# WidgetItem (tribot-script-sdk 1.0.70 API)
+# WidgetItem (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/WidgetItem.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/widgets/WidgetItem.html
 
-**Package:** Packageorg.tribot.script.sdk.types
-
----
-
-* java.lang.Object
-* + org.tribot.script.sdk.types.WidgetItem
-
-* All Implemented Interfaces:
-`[Actionable](../interfaces/Actionable.html "interface in org.tribot.script.sdk.interfaces")`, `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`, `[Identifiable](../interfaces/Identifiable.html "interface in org.tribot.script.sdk.interfaces")`, `[Indexable](../interfaces/Indexable.html "interface in org.tribot.script.sdk.interfaces")`, `[Item](../interfaces/Item.html "interface in org.tribot.script.sdk.interfaces")`, `[ItemDefinable](../interfaces/ItemDefinable.html "interface in org.tribot.script.sdk.interfaces")`, `[Named](../interfaces/Named.html "interface in org.tribot.script.sdk.interfaces")`, `[Stackable](../interfaces/Stackable.html "interface in org.tribot.script.sdk.interfaces")`
+**Package:** Packagenet.runelite.api.widgets
 
 ---
+
+* [java.lang.Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
+* + net.runelite.api.widgets.WidgetItem
+
+* ---
 
 ```
 public class WidgetItem
-extends java.lang.Object
-implements [Item](../interfaces/Item.html "interface in org.tribot.script.sdk.interfaces")
+extends [Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 ```
 
-Represents an item displayed in a widget
+An item that is being represented in a [`Widget`](Widget.html "interface in net.runelite.api.widgets").
 
-See Also:
-[`WidgetQuery.toItemQuery()`](../query/WidgetQuery.html#toItemQuery()),
-[`Widget.toWidgetItem()`](Widget.html#toWidgetItem()),
-[`Widget.toWidgetItemTable()`](Widget.html#toWidgetItemTable())
+* + ### Constructor Summary
 
-* + ### Method Summary
+Constructors | Constructor | Description |
+| `[WidgetItem](#%3Cinit%3E(int,int,java.awt.Rectangle,net.runelite.api.widgets.Widget,java.awt.Rectangle))​(int id,
+int quantity,
+[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") canvasBounds,
+[Widget](Widget.html "interface in net.runelite.api.widgets") widget,
+[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") draggingCanvasBounds)` | |
+
++ ### Method Summary
 
 All Methods [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `boolean` | `[click](#click())()` | Interacts with the entity, with the first action available. |
-| `boolean` | `[click](#click(java.lang.String))​(java.lang.String action)` | Interacts with the entity, given a specific action. |
-| `boolean` | `[equals](#equals(java.lang.Object))​(java.lang.Object o)` | |
-| `java.util.Optional<java.awt.Rectangle>` | `[getBounds](#getBounds())()` | Gets the bounds of the area |
-| `[ItemDefinition](definitions/ItemDefinition.html "class in org.tribot.script.sdk.types.definitions")` | `[getDefinition](#getDefinition())()` | Gets the ItemDefinition for this item, which contains more details about the item. |
-| `int` | `[getId](#getId())()` | Gets the ID of the entity |
-| `int` | `[getIndex](#getIndex())()` | Gets the index of the entity. |
-| `[Widget](Widget.html "class in org.tribot.script.sdk.types")` | `[getOwner](#getOwner())()` | |
-| `int` | `[getStack](#getStack())()` | Gets the stack of this item, which is how many of the item is occupying the item space. |
-| `int` | `[hashCode](#hashCode())()` | |
-| `boolean` | `[hover](#hover())()` | Moves the mouse to a human-randomized point on the entity. |
-| `boolean` | `[isVisible](#isVisible())()` | Determines if the entity is on the screen and able to be clicked. |
-| `java.lang.String` | `[toString](#toString())()` | |
+| `[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt")` | `[getCanvasBounds](#getCanvasBounds())()` | Get the area where the widget item is drawn on the canvas, accounting for drag |
+| `[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt")` | `[getCanvasBounds](#getCanvasBounds(boolean))​(boolean dragging)` | Get the area where the widget item is drawn on the canvas |
+| `[Point](../Point.html "class in net.runelite.api")` | `[getCanvasLocation](#getCanvasLocation())()` | Gets the upper-left coordinate of where the widget is being drawn
+on the canvas, accounting for drag. |
+| `[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt")` | `[getDraggingCanvasBounds](#getDraggingCanvasBounds())()` | The canvas bounds for the widget, if it is being dragged. |
+| `int` | `[getId](#getId())()` | The ID of the item represented. |
+| `int` | `[getQuantity](#getQuantity())()` | The quantity of the represented item. |
+| `[Widget](Widget.html "interface in net.runelite.api.widgets")` | `[getWidget](#getWidget())()` | The widget which contains this item. |
+| `[String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang")` | `[toString](#toString())()` | |
 
-- ### Methods inherited from class java.lang.Object
+- ### Methods inherited from class java.lang.[Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")
 
-`clone, finalize, getClass, notify, notifyAll, wait, wait, wait`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")
+`[clone](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#clone() "class or interface in java.lang"), [equals](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#equals(java.lang.Object) "class or interface in java.lang"), [finalize](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#finalize() "class or interface in java.lang"), [getClass](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#getClass() "class or interface in java.lang"), [hashCode](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#hashCode() "class or interface in java.lang"), [notify](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notify() "class or interface in java.lang"), [notifyAll](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#notifyAll() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait() "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long) "class or interface in java.lang"), [wait](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#wait(long,int) "class or interface in java.lang")`
 
-`[hover](../interfaces/Clickable.html#hover(java.lang.String)), [hoverMenu](../interfaces/Clickable.html#hoverMenu(java.lang.String))`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Item](../interfaces/Item.html "interface in org.tribot.script.sdk.interfaces")
+* + ### Constructor Detail
 
-`[getActions](../interfaces/Item.html#getActions()), [getName](../interfaces/Item.html#getName()), [isHovering](../interfaces/Item.html#isHovering()), [lookupPrice](../interfaces/Item.html#lookupPrice())`
-
-* + ### Method Detail
-
-- #### click
+- #### WidgetItem
 
 ```
-public boolean click​(java.lang.String action)
+public WidgetItem​(int id,
+int quantity,
+[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") canvasBounds,
+[Widget](Widget.html "interface in net.runelite.api.widgets") widget,
+@Nullable
+[Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") draggingCanvasBounds)
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#click(java.lang.String))`
-Interacts with the entity, given a specific action. The "action" string is the part of the option that comes first.
-For example, to attack an NPC, the action is "Attack". Case insensitive.
++ ### Method Detail
 
-Specified by:
-`[click](../interfaces/Clickable.html#click(java.lang.String))` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
+- #### getCanvasBounds
+
+```
+public [Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") getCanvasBounds()
+```
+
+Get the area where the widget item is drawn on the canvas, accounting for drag
+
 Returns:
-If the entity was successfully clicked
-- #### click
+- #### getCanvasBounds
 
 ```
-public boolean click()
+public [Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") getCanvasBounds​(boolean dragging)
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#click())`
-Interacts with the entity, with the first action available. This will generally perform a left-click, unless there is an action blocking in which case it will right click.
+Get the area where the widget item is drawn on the canvas
 
-Specified by:
-`[click](../interfaces/Clickable.html#click())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
+Parameters:
+`dragging` - whether the returned area should account for widget drag
 Returns:
-true if the entity was clicked, false otherwise
-- #### hover
+- #### getCanvasLocation
 
 ```
-public boolean hover()
+public [Point](../Point.html "class in net.runelite.api") getCanvasLocation()
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#hover())`
-Moves the mouse to a human-randomized point on the entity.
+Gets the upper-left coordinate of where the widget is being drawn
+on the canvas, accounting for drag.
 
-Specified by:
-`[hover](../interfaces/Clickable.html#hover())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-If the mouse successfully moved over the entity
-- #### isVisible
+the upper-left coordinate of where this widget is drawn
+- #### toString
 
 ```
-public boolean isVisible()
+public [String](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true "class or interface in java.lang") toString()
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#isVisible())`
-Determines if the entity is on the screen and able to be clicked.
-
-Specified by:
-`[isVisible](../interfaces/Clickable.html#isVisible())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
+Overrides:
+`[toString](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#toString() "class or interface in java.lang")` in class `[Object](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true "class or interface in java.lang")`
 - #### getId
 
 ```
 public int getId()
 ```
 
-Description copied from interface: `[Identifiable](../interfaces/Identifiable.html#getId())`
-Gets the ID of the entity
+The ID of the item represented.
 
-Specified by:
-`[getId](../interfaces/Identifiable.html#getId())` in interface `[Identifiable](../interfaces/Identifiable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getIndex
-
-```
-public int getIndex()
-```
-
-Description copied from interface: `[Indexable](../interfaces/Indexable.html#getIndex())`
-Gets the index of the entity.
-
-Specified by:
-`[getIndex](../interfaces/Indexable.html#getIndex())` in interface `[Indexable](../interfaces/Indexable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getDefinition
+See Also:
+`ItemID`
+- #### getQuantity
 
 ```
-public [ItemDefinition](definitions/ItemDefinition.html "class in org.tribot.script.sdk.types.definitions") getDefinition()
+public int getQuantity()
 ```
 
-Description copied from interface: `[ItemDefinable](../interfaces/ItemDefinable.html#getDefinition())`
-Gets the ItemDefinition for this item, which contains more details about the item.
-
-Specified by:
-`[getDefinition](../interfaces/ItemDefinable.html#getDefinition())` in interface `[ItemDefinable](../interfaces/ItemDefinable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getStack
+The quantity of the represented item.
+- #### getWidget
 
 ```
-public int getStack()
+public [Widget](Widget.html "interface in net.runelite.api.widgets") getWidget()
 ```
 
-Description copied from interface: `[Stackable](../interfaces/Stackable.html#getStack())`
-Gets the stack of this item, which is how many of the item is occupying the item space.
-
-Specified by:
-`[getStack](../interfaces/Stackable.html#getStack())` in interface `[Stackable](../interfaces/Stackable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### equals
+The widget which contains this item.
+- #### getDraggingCanvasBounds
 
 ```
-public boolean equals​(java.lang.Object o)
+@Nullable
+public [Rectangle](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Rectangle.html?is-external=true "class or interface in java.awt") getDraggingCanvasBounds()
 ```
 
-Overrides:
-`equals` in class `java.lang.Object`
-- #### hashCode
-
-```
-public int hashCode()
-```
-
-Overrides:
-`hashCode` in class `java.lang.Object`
-- #### getBounds
-
-```
-public java.util.Optional<java.awt.Rectangle> getBounds()
-```
-
-Description copied from interface: `[Item](../interfaces/Item.html#getBounds())`
-Gets the bounds of the area
-
-Specified by:
-`[getBounds](../interfaces/Item.html#getBounds())` in interface `[Item](../interfaces/Item.html "interface in org.tribot.script.sdk.interfaces")`
-Returns:
-the bounds of the area
-- #### toString
-
-```
-public java.lang.String toString()
-```
-
-Overrides:
-`toString` in class `java.lang.Object`
-- #### getOwner
-
-```
-public [Widget](Widget.html "class in org.tribot.script.sdk.types") getOwner()
-```
+The canvas bounds for the widget, if it is being dragged.

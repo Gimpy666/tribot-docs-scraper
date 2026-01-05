@@ -1,294 +1,149 @@
-# GameObject (tribot-script-sdk 1.0.70 API)
+# GameObject (RuneLite API 1.12.10 API)
 
-**URL:** https://runeautomation.com/docs/sdk/javadocs/org/tribot/script/sdk/types/GameObject.html
+**URL:** https://static.runelite.net/runelite-api/apidocs/net/runelite/api/GameObject.html
 
-**Package:** Packageorg.tribot.script.sdk.types
+**Package:** Packagenet.runelite.api
+
+**Description:** Most object in the RuneScape world are considered as game objects. Things
+ such as trees, anvils, boxes, etc are all game objects....
 
 ---
 
-* java.lang.Object
-* + org.tribot.script.sdk.types.GameObject
-
-* All Implemented Interfaces:
-`[Actionable](../interfaces/Actionable.html "interface in org.tribot.script.sdk.interfaces")`, `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`, `[Identifiable](../interfaces/Identifiable.html "interface in org.tribot.script.sdk.interfaces")`, `[Interactable](../interfaces/Interactable.html "interface in org.tribot.script.sdk.interfaces")`, `[Modellable](../interfaces/Modellable.html "interface in org.tribot.script.sdk.interfaces")`, `[Named](../interfaces/Named.html "interface in org.tribot.script.sdk.interfaces")`, `[Orientable](../interfaces/Orientable.html "interface in org.tribot.script.sdk.interfaces")`, `[Positionable](../interfaces/Positionable.html "interface in org.tribot.script.sdk.interfaces")`
+* All Superinterfaces:
+`[TileObject](TileObject.html "interface in net.runelite.api")`
 
 ---
 
 ```
-public class GameObject
-extends java.lang.Object
-implements [Named](../interfaces/Named.html "interface in org.tribot.script.sdk.interfaces"), [Actionable](../interfaces/Actionable.html "interface in org.tribot.script.sdk.interfaces"), [Identifiable](../interfaces/Identifiable.html "interface in org.tribot.script.sdk.interfaces"), [Interactable](../interfaces/Interactable.html "interface in org.tribot.script.sdk.interfaces"), [Orientable](../interfaces/Orientable.html "interface in org.tribot.script.sdk.interfaces"), [Modellable](../interfaces/Modellable.html "interface in org.tribot.script.sdk.interfaces")
+public interface GameObject
+extends [TileObject](TileObject.html "interface in net.runelite.api")
 ```
 
-Represents a game object
+Represents a game object.
 
-See Also:
-[`Query.gameObjects()`](../query/Query.html#gameObjects())
+Most object in the RuneScape world are considered as game objects. Things
+such as trees, anvils, boxes, etc are all game objects.
 
-* + ### Nested Class Summary
+* + ### Field Summary
 
-- ### Nested classes/interfaces inherited from interface org.tribot.script.sdk.interfaces.[Orientable](../interfaces/Orientable.html "interface in org.tribot.script.sdk.interfaces")
+- ### Fields inherited from interface net.runelite.api.[TileObject](TileObject.html "interface in net.runelite.api")
 
-`[Orientable.Orientation](../interfaces/Orientable.Orientation.html "class in org.tribot.script.sdk.interfaces")`
+`[HASH\_PLANE\_SHIFT](TileObject.html#HASH_PLANE_SHIFT)`
 
 + ### Method Summary
 
-All Methods [Instance Methods](javascript:show(2);) [Concrete Methods](javascript:show(8);) | Modifier and Type | Method | Description |
-| `boolean` | `[adjustCameraTo](#adjustCameraTo())()` | Moves the camera to a position where the given entity or position is in view. |
-| `boolean` | `[click](#click())()` | Interacts with the entity, with the first action available. |
-| `boolean` | `[click](#click(java.lang.String))​(java.lang.String action)` | Interacts with the entity, given a specific action. |
-| `boolean` | `[equals](#equals(java.lang.Object))​(java.lang.Object o)` | |
-| `java.util.List<java.lang.String>` | `[getActions](#getActions())()` | Gets the available actions for the entity, usually dependent on their definition. |
-| `java.util.List<[WorldTile](WorldTile.html "class in org.tribot.script.sdk.types")>` | `[getAllTiles](#getAllTiles())()` | |
-| `[ObjectDefinition](definitions/ObjectDefinition.html "class in org.tribot.script.sdk.types.definitions")` | `[getDefinition](#getDefinition())()` | |
-| `int` | `[getId](#getId())()` | Gets the ID of the entity |
-| `java.util.Optional<[Model](Model.html "class in org.tribot.script.sdk.types")>` | `[getModel](#getModel())()` | Gets the entity model |
-| `java.lang.String` | `[getName](#getName())()` | Determines the name of the entity of the object this method is called on. |
-| `[Orientable.Orientation](../interfaces/Orientable.Orientation.html "class in org.tribot.script.sdk.interfaces")` | `[getOrientation](#getOrientation())()` | Gets the orientation of this entity |
-| `[WorldTile](WorldTile.html "class in org.tribot.script.sdk.types")` | `[getTile](#getTile())()` | Gets the WorldTile of this entity/position |
-| `int` | `[hashCode](#hashCode())()` | |
-| `boolean` | `[hover](#hover())()` | Moves the mouse to a human-randomized point on the entity. |
-| `boolean` | `[interact](#interact(java.lang.String))​(java.lang.String action)` | Attempts to interact with the entity using the given action. |
-| `boolean` | `[interact](#interact(java.lang.String,java.util.function.BooleanSupplier))​(java.lang.String action,
-java.util.function.BooleanSupplier interruptCondition)` | Attempts to interact with the entity using the given action. |
-| `boolean` | `[isHovering](#isHovering())()` | Checks if the mouse is currently over this entity |
-| `boolean` | `[isVisible](#isVisible())()` | Determines if the entity is on the screen and able to be clicked. |
-| `java.lang.String` | `[toString](#toString())()` | |
+All Methods [Instance Methods](javascript:show(2);) [Abstract Methods](javascript:show(4);) | Modifier and Type | Method | Description |
+| `int` | `[getConfig](#getConfig())()` | A bitfield containing various flags: |
+| `[Shape](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Shape.html?is-external=true "class or interface in java.awt")` | `[getConvexHull](#getConvexHull())()` | Gets the convex hull of the object's model. |
+| `int` | `[getModelOrientation](#getModelOrientation())()` | Gets the orientation of the model in JAU. |
+| `int` | `[getOrientation](#getOrientation())()` | Get the orientation of the object |
+| `[Renderable](Renderable.html "interface in net.runelite.api")` | `[getRenderable](#getRenderable())()` | |
+| `[Point](Point.html "class in net.runelite.api")` | `[getSceneMaxLocation](#getSceneMaxLocation())()` | Gets the maximum x and y scene coordinate pair for this game object. |
+| `[Point](Point.html "class in net.runelite.api")` | `[getSceneMinLocation](#getSceneMinLocation())()` | Gets the minimum x and y scene coordinate pair for this game object. |
+| `int` | `[sizeX](#sizeX())()` | Get the size of this object, in tiles, on the x axis |
+| `int` | `[sizeY](#sizeY())()` | Get the size of this object, in tiles, on the y axis |
 
-- ### Methods inherited from class java.lang.Object
+- ### Methods inherited from interface net.runelite.api.[TileObject](TileObject.html "interface in net.runelite.api")
 
-`clone, finalize, getClass, notify, notifyAll, wait, wait, wait`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")
-
-`[hover](../interfaces/Clickable.html#hover(java.lang.String)), [hoverMenu](../interfaces/Clickable.html#hoverMenu(java.lang.String))`
-- ### Methods inherited from interface org.tribot.script.sdk.interfaces.[Positionable](../interfaces/Positionable.html "interface in org.tribot.script.sdk.interfaces")
-
-`[distance](../interfaces/Positionable.html#distance()), [distanceTo](../interfaces/Positionable.html#distanceTo(org.tribot.script.sdk.interfaces.Positionable))`
+`[getCanvasLocation](TileObject.html#getCanvasLocation()), [getCanvasLocation](TileObject.html#getCanvasLocation(int)), [getCanvasTextLocation](TileObject.html#getCanvasTextLocation(java.awt.Graphics2D,java.lang.String,int)), [getCanvasTilePoly](TileObject.html#getCanvasTilePoly()), [getClickbox](TileObject.html#getClickbox()), [getHash](TileObject.html#getHash()), [getId](TileObject.html#getId()), [getLocalLocation](TileObject.html#getLocalLocation()), [getMinimapLocation](TileObject.html#getMinimapLocation()), [getOpOverride](TileObject.html#getOpOverride(int)), [getPlane](TileObject.html#getPlane()), [getWorldLocation](TileObject.html#getWorldLocation()), [getWorldView](TileObject.html#getWorldView()), [getX](TileObject.html#getX()), [getY](TileObject.html#getY()), [getZ](TileObject.html#getZ()), [isOpShown](TileObject.html#isOpShown(int))`
 
 * + ### Method Detail
 
-- #### getId
+- #### sizeX
 
 ```
-public int getId()
+int sizeX()
 ```
 
-Description copied from interface: `[Identifiable](../interfaces/Identifiable.html#getId())`
-Gets the ID of the entity
+Get the size of this object, in tiles, on the x axis
 
-Specified by:
-`[getId](../interfaces/Identifiable.html#getId())` in interface `[Identifiable](../interfaces/Identifiable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getName
-
-```
-public java.lang.String getName()
-```
-
-Description copied from interface: `[Named](../interfaces/Named.html#getName())`
-Determines the name of the entity of the object this method is called on.
-This method cannot return null. Therefore, expect any problems in the determination of the name to force this
-method to return a blank string.
-
-Specified by:
-`[getName](../interfaces/Named.html#getName())` in interface `[Named](../interfaces/Named.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-The name of the entity
-- #### getActions
+- #### sizeY
 
 ```
-public java.util.List<java.lang.String> getActions()
+int sizeY()
 ```
 
-Description copied from interface: `[Actionable](../interfaces/Actionable.html#getActions())`
-Gets the available actions for the entity, usually dependent on their definition.
+Get the size of this object, in tiles, on the y axis
 
-Specified by:
-`[getActions](../interfaces/Actionable.html#getActions())` in interface `[Actionable](../interfaces/Actionable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### click
-
-```
-public boolean click​(java.lang.String action)
-```
-
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#click(java.lang.String))`
-Interacts with the entity, given a specific action. The "action" string is the part of the option that comes first.
-For example, to attack an NPC, the action is "Attack". Case insensitive.
-
-Specified by:
-`[click](../interfaces/Clickable.html#click(java.lang.String))` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-If the entity was successfully clicked
-- #### click
+- #### getSceneMinLocation
 
 ```
-public boolean click()
+[Point](Point.html "class in net.runelite.api") getSceneMinLocation()
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#click())`
-Interacts with the entity, with the first action available. This will generally perform a left-click, unless there is an action blocking in which case it will right click.
+Gets the minimum x and y scene coordinate pair for this game object.
 
-Specified by:
-`[click](../interfaces/Clickable.html#click())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-true if the entity was clicked, false otherwise
-- #### getTile
+the minimum scene coordinate
+- #### getSceneMaxLocation
 
 ```
-public [WorldTile](WorldTile.html "class in org.tribot.script.sdk.types") getTile()
+[Point](Point.html "class in net.runelite.api") getSceneMaxLocation()
 ```
 
-Description copied from interface: `[Positionable](../interfaces/Positionable.html#getTile())`
-Gets the WorldTile of this entity/position
+Gets the maximum x and y scene coordinate pair for this game object.
 
-Specified by:
-`[getTile](../interfaces/Positionable.html#getTile())` in interface `[Positionable](../interfaces/Positionable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### getAllTiles
+This value differs from [`getSceneMinLocation()`](#getSceneMinLocation()) when the size
+of the object is more than 1 tile.
 
-```
-public java.util.List<[WorldTile](WorldTile.html "class in org.tribot.script.sdk.types")> getAllTiles()
-```
-- #### hover
-
-```
-public boolean hover()
-```
-
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#hover())`
-Moves the mouse to a human-randomized point on the entity.
-
-Specified by:
-`[hover](../interfaces/Clickable.html#hover())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-If the mouse successfully moved over the entity
-- #### isVisible
+the maximum scene coordinate
+- #### getConvexHull
 
 ```
-public boolean isVisible()
+[Shape](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Shape.html?is-external=true "class or interface in java.awt") getConvexHull()
 ```
 
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#isVisible())`
-Determines if the entity is on the screen and able to be clicked.
+Gets the convex hull of the object's model.
 
-Specified by:
-`[isVisible](../interfaces/Clickable.html#isVisible())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
-- #### adjustCameraTo
-
-```
-public boolean adjustCameraTo()
-```
-
-Description copied from interface: `[Positionable](../interfaces/Positionable.html#adjustCameraTo())`
-Moves the camera to a position where the given entity or position is in view. Takes into account distance.
-Uses an algorithm to move both the angle and rotation of the camera simultaneously at pseudo-random intervals
-to simulate human camera movement.
-
-Specified by:
-`[adjustCameraTo](../interfaces/Positionable.html#adjustCameraTo())` in interface `[Positionable](../interfaces/Positionable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-True if the camera moved. False otherwise.
-- #### getDefinition
-
-```
-public [ObjectDefinition](definitions/ObjectDefinition.html "class in org.tribot.script.sdk.types.definitions") getDefinition()
-```
-- #### equals
-
-```
-public boolean equals​(java.lang.Object o)
-```
-
-Overrides:
-`equals` in class `java.lang.Object`
-- #### hashCode
-
-```
-public int hashCode()
-```
-
-Overrides:
-`hashCode` in class `java.lang.Object`
+the convex hull
+See Also:
+[`Jarvis`](model/Jarvis.html "class in net.runelite.api.model")
 - #### getOrientation
 
 ```
-public [Orientable.Orientation](../interfaces/Orientable.Orientation.html "class in org.tribot.script.sdk.interfaces") getOrientation()
+int getOrientation()
 ```
 
-Description copied from interface: `[Orientable](../interfaces/Orientable.html#getOrientation())`
-Gets the orientation of this entity
+Get the orientation of the object
 
-Specified by:
-`[getOrientation](../interfaces/Orientable.html#getOrientation())` in interface `[Orientable](../interfaces/Orientable.html "interface in org.tribot.script.sdk.interfaces")`
 Returns:
-the orientation
-- #### toString
+See Also:
+[`Angle`](coords/Angle.html "class in net.runelite.api.coords")
+- #### getRenderable
 
 ```
-public java.lang.String toString()
+[Renderable](Renderable.html "interface in net.runelite.api") getRenderable()
 ```
-
-Overrides:
-`toString` in class `java.lang.Object`
-- #### getModel
+- #### getModelOrientation
 
 ```
-public java.util.Optional<[Model](Model.html "class in org.tribot.script.sdk.types")> getModel()
+int getModelOrientation()
 ```
 
-Description copied from interface: `[Modellable](../interfaces/Modellable.html#getModel())`
-Gets the entity model
+Gets the orientation of the model in JAU.
+This is typically 0 for non-actors, since
+most object's models are oriented prior to
+lighting during scene loading. See [`getOrientation()`](#getOrientation())
+instead for object orientation.
 
-Specified by:
-`[getModel](../interfaces/Modellable.html#getModel())` in interface `[Modellable](../interfaces/Modellable.html "interface in org.tribot.script.sdk.interfaces")`
-Returns:
-the entity model, or an empty optional if the model could not be obtained (ex. not visible on screen)
-- #### isHovering
-
-```
-public boolean isHovering()
-```
-
-Description copied from interface: `[Clickable](../interfaces/Clickable.html#isHovering())`
-Checks if the mouse is currently over this entity
-
-Specified by:
-`[isHovering](../interfaces/Clickable.html#isHovering())` in interface `[Clickable](../interfaces/Clickable.html "interface in org.tribot.script.sdk.interfaces")`
-Returns:
-true if the mouse if over this entity, false otherwise
-- #### interact
+See Also:
+[`Angle`](coords/Angle.html "class in net.runelite.api.coords")
+- #### getConfig
 
 ```
-public boolean interact​(java.lang.String action)
+int getConfig()
 ```
 
-Description copied from interface: `[Interactable](../interfaces/Interactable.html#interact(java.lang.String))`
-Attempts to interact with the entity using the given action. This method will adjust the camera to and walk to
-the entity if needed.
-
-As of now, the interactable entity must be reachable. In the future, support for obstacles such as doors may be added.
-
-Specified by:
-`[interact](../interfaces/Interactable.html#interact(java.lang.String))` in interface `[Interactable](../interfaces/Interactable.html "interface in org.tribot.script.sdk.interfaces")`
-Parameters:
-`action` - The action to use when interacting with the entity (IE: "Attack", "Take", etc)
-Returns:
-True if the entity was clicked, false otherwise
-- #### interact
+A bitfield containing various flags:
 
 ```
-public boolean interact​(java.lang.String action,
-java.util.function.BooleanSupplier interruptCondition)
+
+object type = bits & 31
+orientation = bits >>> 6 & 3
+supports items = bits >>> 8 & 1
+
 ```
-
-Description copied from interface: `[Interactable](../interfaces/Interactable.html#interact(java.lang.String,java.util.function.BooleanSupplier))`
-Attempts to interact with the entity using the given action. This method will adjust the camera to and walk to
-the entity if needed.
-
-As of now, the interactable entity must be reachable. In the future, support for obstacles such as doors may be added.
-
-Specified by:
-`[interact](../interfaces/Interactable.html#interact(java.lang.String,java.util.function.BooleanSupplier))` in interface `[Interactable](../interfaces/Interactable.html "interface in org.tribot.script.sdk.interfaces")`
-Parameters:
-`action` - The action to use when interacting with the entity (IE: "Attack", "Take", etc)
-`interruptCondition` - a condition to interrupt the interaction attempt - if this condition is ever true, when checked, the interaction attempt with return early with a result of false
-Returns:
-True if the entity was clicked, false otherwise
